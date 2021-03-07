@@ -6,16 +6,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.CreateAnAccountPageFactory;
-import pages.LoginPage;
+import pages.CreateAnAccountPage;
+import pages.SignInPage;
 import test_data.TestConstants;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest implements TestConstants {
     WebDriver driver;
-    LoginPage loginPage;
-    CreateAnAccountPageFactory createAnAccountPageFactory;
+    SignInPage signInPage;
+    CreateAnAccountPage createAnAccountPage;
 
     @BeforeMethod
     public void initTest() {
@@ -24,8 +24,8 @@ public class BaseTest implements TestConstants {
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        loginPage = new LoginPage(driver);
-        createAnAccountPageFactory = new CreateAnAccountPageFactory(driver);
+        signInPage = new SignInPage(driver);
+        createAnAccountPage = new CreateAnAccountPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
