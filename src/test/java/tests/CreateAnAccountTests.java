@@ -15,4 +15,12 @@ public class CreateAnAccountTests extends BaseTest{
         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
     }
 
+    @Test
+    public void longPasswordTest() {
+        createAnAccountPage.openPage(SIGN_IN);
+        createAnAccountPage.login(EMAIL_ADDRESS);
+        createAnAccountPage.inputLongPasswordInField(LONG_PASSWORD);
+        Assert.assertEquals(createAnAccountPage.inputLongPasswordInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
+    }
+
 }

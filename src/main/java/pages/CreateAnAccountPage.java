@@ -26,6 +26,9 @@ public class CreateAnAccountPage extends BasePage {
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'firstname')]")
     WebElement errorTextEmptyFieldFirstname;
 
+    @FindBy(xpath = "//*[@id='passwd']")
+    WebElement fieldPassword;
+
     public CreateAnAccountPage(WebDriver driver) {
         super(driver);
     }
@@ -47,5 +50,10 @@ public class CreateAnAccountPage extends BasePage {
 
     public String getEmptyFirstnameText() {
         return errorTextEmptyFieldFirstname.getText();
+    }
+
+    public void inputLongPasswordInField(String password) {
+        fieldPassword.sendKeys(password);
+        registrationButton.click();
     }
 }
