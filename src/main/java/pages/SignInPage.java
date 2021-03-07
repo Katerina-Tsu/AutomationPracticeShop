@@ -23,10 +23,10 @@ public class SignInPage extends BasePage {
 
     @Override
     void waitForPageOpened() {
-        //TO DO
+        //TODO: Implement this method
     }
 
-    public void login(String emailAddress) {
+    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();
     }
@@ -40,6 +40,6 @@ public class SignInPage extends BasePage {
     }
 
     public void openPage(String url) {
-        super.openPage(SIGN_IN);
+        super.openPage(SIGN_IN_URL);
     }
 }
