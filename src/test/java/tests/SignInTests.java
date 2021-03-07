@@ -27,4 +27,12 @@ public class SignInTests extends BaseTest {
         signInPage.login(WRONG_EMAIL_ADDRESS);
         Assert.assertEquals(signInPage.getEmailAddressText(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
     }
+
+//    @Test
+//    public void allFieldsAreEmptyTest() {
+//        signInPage.openPage(SIGN_IN);
+//        signInPage.login(EMAIL_ADDRESS);
+//      //  signInPage.
+//        Assert.assertEquals(signInPage.getEmailAddressText(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
+//    }
 }

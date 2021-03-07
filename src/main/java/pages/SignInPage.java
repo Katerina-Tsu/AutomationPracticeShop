@@ -1,8 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SignInPage extends BasePage {
     public SignInPage(WebDriver driver) {
@@ -23,7 +25,7 @@ public class SignInPage extends BasePage {
 
     @Override
     void waitForPageOpened() {
-        //TO DO
+            wait.until(ExpectedConditions.visibilityOfElementLocated((By) createAnAccountLabel));
     }
 
     public void login(String emailAddress) {
