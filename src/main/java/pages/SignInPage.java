@@ -6,4 +6,8 @@ public class SignInPage extends BasePage{
     SignInPage(WebDriver driver) {
         super(driver);
     }
+
+    void waitForPageOpened() {
+
+    }
 }
