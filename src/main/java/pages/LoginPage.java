@@ -1,21 +1,25 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver driver) { super(driver); }
 
+    @FindBy(xpath = "//*[@id=\"email_create\"]")
+    WebElement emailAddressFieldInput;
+
+    @FindBy(xpath = "//*[@id=\"SubmitCreate\"]")
+    WebElement createAnAccountButton;
+
     void waitForPageOpened() {
     }
 
-    /**
-     * Login to the site
-     * @param emailAddress
-     */
     public void login(String emailAddress) {
-        driver.findElement(EMAIL_ADDRESS_FIELD_INPUT).sendKeys(emailAddress);
-        driver.findElement(CREATE_AN_ACCOUNT_BUTTON).click();
+        emailAddressFieldInput.sendKeys(emailAddress);
+        createAnAccountButton.click();
     }
 
     public void openPage(String url) {

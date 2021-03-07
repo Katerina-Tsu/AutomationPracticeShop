@@ -1,29 +1,49 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class CreateAnAccountPageFactory extends BasePage{
+public class CreateAnAccountPageFactory extends BasePage {
 
-    public CreateAnAccountPageFactory(WebDriver driver) { super(driver); }
+    @FindBy(xpath = "//*[@id=\"email_create\"]")
+    WebElement emailAddressFieldInput;
 
+    @FindBy(xpath = "//*[@id=\"SubmitCreate\"]")
+    WebElement createAnAccountButton;
+
+    @FindBy(xpath = "//*[contains(text(),'Create an account')]")
+    WebElement createAnAccountLabel;
+
+    @FindBy(xpath = "//*[@class=\"form-group form-error\"]")
+    WebElement errorLocatorInEmptyFieldEmailAddress;
+
+    @FindBy(xpath = "//*[@id=\"create_account_error\"]//ancestor::*[contains(text(),'Invalid email address.')]")
+    WebElement errorWrongEmailAddressInField;
+
+    public CreateAnAccountPageFactory(WebDriver driver) {
+        super(driver);
+    }
+
+    @Override
     void waitForPageOpened() {
     }
 
     public void login(String emailAddress) {
-        driver.findElement(EMAIL_ADDRESS_FIELD_INPUT).sendKeys(emailAddress);
-        driver.findElement(CREATE_AN_ACCOUNT_BUTTON).click();
+        emailAddressFieldInput.sendKeys(emailAddress);
+        createAnAccountButton.click();
     }
 
     public boolean isPageOpened() {
-        return driver.findElement(CREATE_AN_ACCOUNT_LABEL).isDisplayed();
+        return createAnAccountLabel.isDisplayed();
     }
 
     public boolean getLocatorEmailAddressField() {
-        driver.findElement(ERROR_LOCATOR_IN_EMPTY_FIELD_EMAIL_ADDRESS).getClass();
+        errorLocatorInEmptyFieldEmailAddress.getText();
         return true;
     }
 
     public String getActualResultWrongEmailAddress() {
-     return driver.findElement(ERROR_WRONG_EMAIL_ADDRESS_IN_FIELD).getText();
+        return errorWrongEmailAddressInField.getText();
     }
 }

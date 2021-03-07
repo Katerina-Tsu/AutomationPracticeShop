@@ -3,7 +3,6 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static constants.CommonConstants.SIGN_IN;
-import static test_data.TestConstants.EMAIL_ADDRESS;
 
 public class LoginTests extends BaseTest{
 

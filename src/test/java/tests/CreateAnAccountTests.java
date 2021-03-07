@@ -8,23 +8,23 @@ public class CreateAnAccountTests extends BaseTest{
 
     @Test
     public void createAnAccountTest() {
-        createAnAccountPage.openPage(SIGN_IN);
-        createAnAccountPage.login(EMAIL_ADDRESS);
-        Assert.assertTrue(createAnAccountPage.isPageOpened());
+        createAnAccountPageFactory.openPage(SIGN_IN);
+        createAnAccountPageFactory.login(EMAIL_ADDRESS);
+        Assert.assertTrue(createAnAccountPageFactory.isPageOpened());
     }
 
     @Test
     public void emptyEmailFieldTest() {
-        createAnAccountPage.openPage(SIGN_IN);
-        createAnAccountPage.login(EMPTY_EMAIL_ADDRESS);
-        createAnAccountPage.getLocatorEmailAddressField();
-        Assert.assertEquals(createAnAccountPage.getLocatorEmailAddressField(), expectedResultEmptyFieldEmailAddress);
+        createAnAccountPageFactory.openPage(SIGN_IN);
+        createAnAccountPageFactory.login(EMPTY_EMAIL_ADDRESS);
+        createAnAccountPageFactory.getLocatorEmailAddressField();
+        Assert.assertEquals(createAnAccountPageFactory.getLocatorEmailAddressField(), expectedResultEmptyFieldEmailAddress);
     }
 
     @Test
     public void wrongEmailFieldTest() {
-        createAnAccountPage.openPage(SIGN_IN);
-        createAnAccountPage.login(WRONG_EMAIL_ADDRESS);
-        Assert.assertEquals(createAnAccountPage.getActualResultWrongEmailAddress(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
+        createAnAccountPageFactory.openPage(SIGN_IN);
+        createAnAccountPageFactory.login(WRONG_EMAIL_ADDRESS);
+        Assert.assertEquals(createAnAccountPageFactory.getActualResultWrongEmailAddress(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
     }
 }
