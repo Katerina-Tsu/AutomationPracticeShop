@@ -7,7 +7,7 @@ import static constants.CommonConstants.SIGN_IN;
 
 public class CreateAnAccountTests extends BaseTest{
 
-    @Test
+    @Test(groups = "Katia")
     public void firstnameFieldIsEmptyTest() {
         createAnAccountPage.openPage(SIGN_IN);
         createAnAccountPage.login(EMAIL_ADDRESS);
@@ -15,7 +15,7 @@ public class CreateAnAccountTests extends BaseTest{
         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
     }
 
-    @Test
+    @Test(groups = "Katia")
     public void longPasswordTest() {
         createAnAccountPage.openPage(SIGN_IN);
         createAnAccountPage.login(EMAIL_ADDRESS);
