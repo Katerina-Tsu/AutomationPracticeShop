@@ -1,6 +1,8 @@
 package test_data;
 
 
+import org.testng.annotations.DataProvider;
+
 public interface TestConstants {
     String EMAIL_ADDRESS = "a.ivanov.customer@mail.ru";
     String EMPTY_EMAIL_ADDRESS = "";

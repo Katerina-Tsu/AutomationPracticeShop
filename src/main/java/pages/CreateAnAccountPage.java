@@ -52,8 +52,8 @@ public class CreateAnAccountPage extends BasePage {
         return errorTextEmptyFieldFirstname.getText();
     }
 
-    public void inputLongPasswordInField(String password) {
-        fieldPassword.sendKeys(password);
+    public void inputLongPswrdInField(String pswrd) {
+        fieldPassword.sendKeys(pswrd);
         registrationButton.click();
     }
 }

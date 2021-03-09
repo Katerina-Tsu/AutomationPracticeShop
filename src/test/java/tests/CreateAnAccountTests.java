@@ -19,8 +19,8 @@ public class CreateAnAccountTests extends BaseTest{
     public void longPasswordTest() {
         createAnAccountPage.openPage(SIGN_IN);
         createAnAccountPage.login(EMAIL_ADDRESS);
-        createAnAccountPage.inputLongPasswordInField(LONG_PASSWORD);
-        Assert.assertEquals(createAnAccountPage.inputLongPasswordInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
+        createAnAccountPage.inputLongPswrdInField(LONG_PASSWORD);
+        Assert.assertEquals(createAnAccountPage.inputLongPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
     }
 
 }
