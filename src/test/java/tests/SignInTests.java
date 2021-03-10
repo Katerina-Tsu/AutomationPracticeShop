@@ -18,13 +18,13 @@ public class SignInTests extends BaseTest {
     public void emptyEmailFieldTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInEmailAndClickCreateAccountBtn(EMPTY_EMAIL_ADDRESS);
-        Assert.assertEquals(signInPage.getEmailAddressText(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
+        Assert.assertEquals(signInPage.getEmailAddressText(), WRONG_EMAIL_ADDRESS_MESSAGE);
     }
 
     @Test(groups = "Katia")
     public void wrongEmailFieldTest() {
         signInPage.openPage(SIGN_IN_URL);
-        signInPage.fillInEmailAndClickCreateAccountBtn(WRONG_EMAIL_ADDRESS_MESSAGE);
-        Assert.assertEquals(signInPage.getEmailAddressText(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
+        signInPage.fillInEmailAndClickCreateAccountBtn(WRONG_EMAIL_ADDRESS);
+        Assert.assertEquals(signInPage.getEmailAddressText(), WRONG_EMAIL_ADDRESS_MESSAGE);
     }
 }
