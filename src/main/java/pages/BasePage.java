@@ -17,8 +17,10 @@ abstract class BasePage implements CommonConstants {
 
     abstract void waitForPageOpened();
 
-    public void openPage(String url) { driver.get(url); }
+    public void openPage(String url) {
+        driver.get(url);
+    }
 
-    public abstract void login(String emailAddress);
+    public abstract void fillInEmailAndClickCreateAccountBtn(String emailAddress);
 
 }

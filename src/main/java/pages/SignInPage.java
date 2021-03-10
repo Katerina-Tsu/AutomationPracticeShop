@@ -25,10 +25,11 @@ public class SignInPage extends BasePage {
 
     @Override
     void waitForPageOpened() {
-            wait.until(ExpectedConditions.visibilityOfElementLocated((By) createAnAccountLabel));
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By) createAnAccountLabel));
     }
 
-    public void login(String emailAddress) {
+
+    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();
     }

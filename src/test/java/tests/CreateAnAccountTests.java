@@ -5,22 +5,39 @@ import org.testng.annotations.Test;
 
 import static constants.CommonConstants.SIGN_IN;
 
-public class CreateAnAccountTests extends BaseTest{
+public class CreateAnAccountTests extends BaseTest {
 
-    @Test(groups = "Katia")
+    @Test(groups = "Katia. Empty email address verification.")
     public void firstnameFieldIsEmptyTest() {
         createAnAccountPage.openPage(SIGN_IN);
-        createAnAccountPage.login(EMAIL_ADDRESS);
-        createAnAccountPage.inputTextInFormFirstName(EMPTY_FIELD_FIRST_NAME);
+        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
+        createAnAccountPage.inputTextInFormFirstNameAndClickRegistr(EMPTY_FIELD_FIRST_NAME);
         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
     }
 
-    @Test(groups = "Katia")
-    public void longPasswordTest() {
+    @Test(groups = "Katia. Input short-zipcode verification.")
+    public void inputLongPasswordTest() {
         createAnAccountPage.openPage(SIGN_IN);
-        createAnAccountPage.login(EMAIL_ADDRESS);
-        createAnAccountPage.inputLongPswrdInField(LONG_PASSWORD);
-        Assert.assertEquals(createAnAccountPage.inputLongPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
+        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
+        createAnAccountPage.inputShortPswrdInField(SHORT_ZIPCODE);
+        Assert.assertEquals(createAnAccountPage.getShortPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
     }
 
+    @Test(groups = "Katia. The required form fields are filled. Registration is complete.")
+    public void allRequiredFieldsAreFilled() {
+        createAnAccountPage.openPage(SIGN_IN);
+        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
+        createAnAccountPage.inptTextInRequiredFieldsFormAndReg(FIELD_YOUR_FIRSTNAME,
+                FIELD_YOUR_LASTNAME,
+                FIELD_PASSWORD,
+                FIELD_YOUR_FIRSTNAME_COMPANY,
+                FIELD_YOUR_LASTNAME_COMPANY,
+                FIELD_ADDRESS_COMPANY,
+                FIELD_NAME_CITY,
+                FIELD_ZIPCODE,
+                FIELD_MOB_PHONE,
+                FIELD_COMPANY_ASSIGN_NAME
+        );
+        Assert.assertTrue(createAnAccountPage.isMainStorePageOpened());
+    }
 }

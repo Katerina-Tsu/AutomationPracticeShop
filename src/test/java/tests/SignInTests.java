@@ -7,32 +7,24 @@ import static constants.CommonConstants.SIGN_IN;
 
 public class SignInTests extends BaseTest {
 
-    @Test(groups = "Katia")
+    @Test(groups = "Katia. When inputted right email. After that, We went to Create an account page.")
     public void createAnAccountTest() {
         signInPage.openPage(SIGN_IN);
-        signInPage.login(EMAIL_ADDRESS);
+        signInPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
         Assert.assertTrue(signInPage.isPageOpened());
     }
 
-    @Test(groups = "Katia")
+    @Test(groups = "Katia. When field email is empty.")
     public void emptyEmailFieldTest() {
         signInPage.openPage(SIGN_IN);
-        signInPage.login(EMPTY_EMAIL_ADDRESS);
+        signInPage.fillInEmailAndClickCreateAccountBtn(EMPTY_EMAIL_ADDRESS);
         Assert.assertEquals(signInPage.getEmailAddressText(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
     }
 
-    @Test(groups = "Katia")
+    @Test(groups = "Katia. When inputted wrong email.")
     public void wrongEmailFieldTest() {
         signInPage.openPage(SIGN_IN);
-        signInPage.login(WRONG_EMAIL_ADDRESS_MESSAGE);
+        signInPage.fillInEmailAndClickCreateAccountBtn(WRONG_EMAIL_ADDRESS_MESSAGE);
         Assert.assertEquals(signInPage.getEmailAddressText(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
     }
-
-//    @Test
-//    public void allFieldsAreEmptyTest() {
-//        signInPage.openPage(SIGN_IN);
-//        signInPage.login(EMAIL_ADDRESS);
-//      //  signInPage.
-//        Assert.assertEquals(signInPage.getEmailAddressText(), EXPECTED_RESULT_WRONG_EMAIL_ADDRESS);
-//    }
 }

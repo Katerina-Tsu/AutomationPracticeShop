@@ -18,7 +18,7 @@ public class CreateAnAccountPage extends BasePage {
     WebElement yourPersonalInfoLabel;
 
     @FindBy(xpath = "//*[@id='customer_firstname']")
-    WebElement fieldFirstName;
+    WebElement fieldYourFirstName;
 
     @FindBy(xpath = "//*[@id='submitAccount']")
     WebElement registrationButton;
@@ -29,22 +29,64 @@ public class CreateAnAccountPage extends BasePage {
     @FindBy(xpath = "//*[@id='passwd']")
     WebElement fieldPassword;
 
+    @FindBy(xpath = "//*[@class='alert alert-danger']//ancestor::*[contains(text(),'The Zip/Postal')]")
+    WebElement errorTextLongZipcode;
+
+    @FindBy(xpath = "//*[@id='customer_lastname']")
+    WebElement fieldYourLastname;
+
+    @FindBy(xpath = "//*[@id='email']")
+    WebElement fieildEmail;
+
+    @FindBy(xpath = "//*[@id='firstname']")
+    WebElement fieldCompanyFirstname;
+
+    @FindBy(xpath = "//*[@id='lastname']")
+    WebElement fieldCompanyLastname;
+
+    @FindBy(xpath = "//*[@id='address1']")
+    WebElement fieldYourAddress;
+
+    @FindBy(xpath = "//*[@id='city']")
+    WebElement fieldCity;
+
+    @FindBy(xpath = "//*[@id='id_state']//ancestor::*[contains(text(),'Arizona')]")
+    WebElement fieldState;
+
+    @FindBy(xpath = "//*[@id='postcode']")
+    WebElement fieldZipCode;
+
+    @FindBy(xpath = "//*[@id='id_country']//ancestor::*[contains(text(),'United State')]")
+    WebElement fieldCountry;
+
+    @FindBy(xpath = "//*[@id='phone_mobile']")
+    WebElement fieldMobPhone;
+
+    @FindBy(xpath = "//*[@id='alias']")
+    WebElement fieldAssignAddress;
+
+    @FindBy(xpath = "//*[@id='my-account']")
+    WebElement myAccountPageLabel;
+
+    @FindBy(xpath = "//*[@id='alias']")
+    WebElement textInFieldAssignAnAddress;
+
     public CreateAnAccountPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     void waitForPageOpened() {
-            wait.until(ExpectedConditions.visibilityOfElementLocated((By) yourPersonalInfoLabel));
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By) yourPersonalInfoLabel));
     }
 
-    public void login(String emailAddress) {
+    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();
     }
 
-    public void inputTextInFormFirstName(String firstName) {
-        fieldFirstName.sendKeys(firstName);
+    public void inputTextInFormFirstNameAndClickRegistr(String firstName) {
+        fieldYourFirstName.sendKeys(firstName);
         registrationButton.click();
     }
 
@@ -52,8 +94,38 @@ public class CreateAnAccountPage extends BasePage {
         return errorTextEmptyFieldFirstname.getText();
     }
 
-    public void inputLongPswrdInField(String pswrd) {
-        fieldPassword.sendKeys(pswrd);
+    public void inputShortPswrdInField(String zipCode) {
+        fieldZipCode.sendKeys(zipCode);
         registrationButton.click();
+    }
+
+    public String getShortPswrdInField() {
+        return errorTextLongZipcode.getText();
+    }
+
+    public void inptTextInRequiredFieldsFormAndReg(String firstName, String lastname,
+                                                   String pswrd, String frstnameCompany,
+                                                   String lstnameCompany, String yourAddress,
+                                                   String city, String zipCode, String mobPhone,
+                                                   String assNameAddress) {
+        fieldYourFirstName.sendKeys(firstName);
+        fieldYourLastname.sendKeys(lastname);
+        fieildEmail.click();
+        fieldPassword.sendKeys(pswrd);
+        fieldCompanyFirstname.sendKeys(frstnameCompany);
+        fieldCompanyLastname.sendKeys(lstnameCompany);
+        fieldYourAddress.sendKeys(yourAddress);
+        fieldCity.sendKeys(city);
+        fieldState.click();
+        fieldZipCode.sendKeys(zipCode);
+        fieldCountry.getText();
+        fieldMobPhone.sendKeys(mobPhone);
+        textInFieldAssignAnAddress.clear();
+        fieldAssignAddress.sendKeys(assNameAddress);
+        registrationButton.click();
+    }
+
+    public boolean isMainStorePageOpened() {
+        return myAccountPageLabel.isDisplayed();
     }
 }
