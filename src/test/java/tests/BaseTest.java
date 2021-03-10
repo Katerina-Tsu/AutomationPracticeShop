@@ -24,10 +24,16 @@ public class BaseTest implements TestConstants {
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        signInPage = new SignInPage(driver);
-        createAnAccountPage = new CreateAnAccountPage(driver);
+        initPage();
     }
 
     @AfterMethod(alwaysRun = true)
-    public void endTest() { driver.quit();}
+    public void endTest() {
+        driver.quit();
+    }
+
+    public void initPage() {
+        signInPage = new SignInPage(driver);
+        createAnAccountPage = new CreateAnAccountPage(driver);
+    }
 }
