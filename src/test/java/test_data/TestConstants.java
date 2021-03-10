@@ -1,8 +1,5 @@
 package test_data;
 
-
-import org.testng.annotations.DataProvider;
-
 public interface TestConstants {
     String EMAIL_ADDRESS = "sssss.ivanov.customer@mail.ru";
     String FIELD_PASSWORD = "rfvtgb123";

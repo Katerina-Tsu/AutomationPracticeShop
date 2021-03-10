@@ -43,6 +43,6 @@ public class SignInPage extends BasePage {
     }
 
     public void openPage(String url) {
-        super.openPage(SIGN_IN);
+        super.openPage(SIGN_IN_URL);
     }
 }
