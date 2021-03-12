@@ -66,7 +66,7 @@ public class CreateAnAccountPage extends BasePage {
     WebElement fieldAssignAddress;
 
     @FindBy(xpath = "//*[@id='my-account']")
-    WebElement myAccountPageLabel;
+    WebElement myAccountLabel;
 
     @FindBy(xpath = "//*[@id='alias']")
     WebElement textInFieldAssignAnAddress;
@@ -75,8 +75,7 @@ public class CreateAnAccountPage extends BasePage {
         super(driver);
     }
 
-    @Override
-    void waitForPageOpened() {
+    public void waitForPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By) yourPersonalInfoLabel));
     }
 
@@ -103,17 +102,17 @@ public class CreateAnAccountPage extends BasePage {
         return errorTextLongZipcode.getText();
     }
 
-    public void inptTextInRequiredFieldsFormAndReg(String firstName, String lastname,
-                                                   String pswrd, String frstnameCompany,
-                                                   String lstnameCompany, String yourAddress,
-                                                   String city, String zipCode, String mobPhone,
-                                                   String assNameAddress) {
+    public void inputTextInRequiredFieldsFormAndReg(String firstName, String lastname,
+                                                    String pswrd, String firstnameCompany,
+                                                    String lastnameCompany, String yourAddress,
+                                                    String city, String zipCode, String mobPhone,
+                                                    String assignNameAddress) {
         fieldYourFirstName.sendKeys(firstName);
         fieldYourLastname.sendKeys(lastname);
         fieildEmail.click();
         fieldPassword.sendKeys(pswrd);
-        fieldCompanyFirstname.sendKeys(frstnameCompany);
-        fieldCompanyLastname.sendKeys(lstnameCompany);
+        fieldCompanyFirstname.sendKeys(firstnameCompany);
+        fieldCompanyLastname.sendKeys(lastnameCompany);
         fieldYourAddress.sendKeys(yourAddress);
         fieldCity.sendKeys(city);
         fieldState.click();
@@ -121,11 +120,11 @@ public class CreateAnAccountPage extends BasePage {
         fieldCountry.getText();
         fieldMobPhone.sendKeys(mobPhone);
         textInFieldAssignAnAddress.clear();
-        fieldAssignAddress.sendKeys(assNameAddress);
+        fieldAssignAddress.sendKeys(assignNameAddress);
         registrationButton.click();
     }
 
     public boolean isMainStorePageOpened() {
-        return myAccountPageLabel.isDisplayed();
+        return myAccountLabel.isDisplayed();
     }
 }

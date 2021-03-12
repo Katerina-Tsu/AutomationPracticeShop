@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.CreateAnAccountPage;
+import pages.MainProductsPage;
+import pages.MyAccountPage;
 import pages.SignInPage;
 import test_data.TestConstants;
 
@@ -16,6 +18,8 @@ public class BaseTest implements TestConstants {
     WebDriver driver;
     SignInPage signInPage;
     CreateAnAccountPage createAnAccountPage;
+    MyAccountPage myAccountPage;
+    MainProductsPage mainProductsPage;
 
     @BeforeMethod
     public void initTest() {
@@ -35,5 +39,7 @@ public class BaseTest implements TestConstants {
     public void initPage() {
         signInPage = new SignInPage(driver);
         createAnAccountPage = new CreateAnAccountPage(driver);
+        myAccountPage = new MyAccountPage(driver);
+        mainProductsPage = new MainProductsPage(driver);
     }
 }

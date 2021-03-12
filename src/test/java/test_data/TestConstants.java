@@ -19,4 +19,5 @@ public interface TestConstants {
     String FIELD_COMPANY_ASSIGN_NAME = "UVR Shipping";
     String SHORT_ZIPCODE = "12";
     String EXPECTED_RESULT_NOT_LONG_PASSWORD = "The Zip/Postal code you've entered is invalid. It must follow this format: 00000";
+    String EXPECTED_RESULT_QUANTITY_PRODUCTS = "";
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-abstract class BasePage implements CommonConstants {
+public class BasePage implements CommonConstants {
     WebDriver driver;
     WebDriverWait wait;
 
@@ -15,12 +15,8 @@ abstract class BasePage implements CommonConstants {
         PageFactory.initElements(driver, this);
     }
 
-    abstract void waitForPageOpened();
 
     public void openPage(String url) {
         driver.get(url);
     }
-
-    public abstract void fillInEmailAndClickCreateAccountBtn(String emailAddress);
-
 }

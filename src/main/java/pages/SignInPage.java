@@ -6,10 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class SignInPage extends BasePage {
-    public SignInPage(WebDriver driver) {
-        super(driver);
-    }
+public class SignInPage extends HeaderPage {
 
     @FindBy(xpath = "//*[@id='email_create']")
     WebElement emailAddressFieldInput;
@@ -23,8 +20,12 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//*[@id='create_account_error']//ancestor::*[contains(text(),'Invalid email address.')]")
     WebElement errorWrongEmailAddressInField;
 
-    @Override
-    void waitForPageOpened() {
+    public SignInPage(WebDriver driver) {
+        super(driver);
+    }
+
+
+    public void waitForPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By) createAnAccountLabel));
     }
 
