@@ -1,7 +1,7 @@
 package test_data;
 
 public interface TestConstants {
-    String EMAIL_ADDRESS = "sssss.ivanov.customer@mail.ru";
+    String EMAIL_ADDRESS = "sss.ivanov.customer@mail.ru";
     String FIELD_PASSWORD = "rfvtgb123";
     String FIELD_ADDRESS_COMPANY = "Dzerzhinsky Avenue, 57; Flo Inc.";
     String FIELD_NAME_CITY = "Minsk";

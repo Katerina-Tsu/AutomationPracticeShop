@@ -20,6 +20,15 @@ public class SignInPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='create_account_error']//ancestor::*[contains(text(),'Invalid email address.')]")
     WebElement errorWrongEmailAddressInField;
 
+    @FindBy(xpath = "//*[@id='email']")
+    WebElement emailFieldSignIn;
+
+    @FindBy(xpath = "//*[@id='passwd']")
+    WebElement passwordFieldSignIn;
+
+    @FindBy(xpath = "//*[@id='SubmitLogin']")
+    WebElement signInButton;
+
     public SignInPage(WebDriver driver) {
         super(driver);
     }
@@ -45,5 +54,11 @@ public class SignInPage extends HeaderPage {
 
     public void openPage(String url) {
         super.openPage(SIGN_IN_URL);
+    }
+
+    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
+        emailFieldSignIn.sendKeys(emailAddress);
+        passwordFieldSignIn.sendKeys(password);
+        signInButton.click();
     }
 }

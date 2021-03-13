@@ -25,6 +25,15 @@ public class YourShoppingCartPage extends HeaderPage {
     @FindBy(xpath = "//*[@class='icon-plus']")
     WebElement increaseTheQuantityProductsButton;
 
+    @FindBy(xpath = "//*[@class='icon-trash']")
+    WebElement trashButton;
+
+    @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
+    WebElement addToCartButton;
+
+    @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Your shopping cart is empty.')]")
+    WebElement shoppingCartIsEmptyText;
+
     @FindBy(xpath = "//*[@id='layer_cart']//self::*[contains(text(),'Proceed to checkout')]")
     WebElement proceedToCheckoutButton;
 
@@ -64,5 +73,16 @@ public class YourShoppingCartPage extends HeaderPage {
 
     public String getTotalPriceSomeItemsProduct(String productNameItem) {
         return driver.findElement(By.xpath(String.format(totalPriceSomeItemsProduct, productNameItem))).getText();
+    }
+
+    public void clickAddToCartButton() {
+        addToCartButton.getText();
+
+    public void clickTrashButton(){
+        trashButton.click();
+    }
+
+    public String getShoppingCartIsEmptyText() {
+        return shoppingCartIsEmptyText.getText();
     }
 }
