@@ -15,23 +15,12 @@ public class MainProductsTests extends BaseTest{
 //        Assert.assertTrue(mainProductsPage.isTickProductAddedToCartPageOpened());
 //    }
 
-    @Test(groups = "Katia. Click 'Add to cart' button from main page on the cart page.")
+    @Test(groups = "Katia. Add one product. Click 'Add to cart' button from main page on the cart page.")
     public void addOneProductCartTest() {
         mainProductsPage.openPage(AUTOMATION_PRACTICE_SHOP_URL);
         mainProductsPage.findProductNameOnMainPage("Blouse");
         mainProductsPage.clickAddToCartButton();
         mainProductsPage.waitForPageOpened();
         Assert.assertTrue(mainProductsPage.isTickProductAddedToCartPageOpened());
-    }
-
-    @Test(groups = "Katia. Add multiple products to cart")
-    public void findMultipleProductsToCart() {
-        mainProductsPage.openPage(AUTOMATION_PRACTICE_SHOP_URL);
-        mainProductsPage.findProductNameOnMainPage("Blouse");
-        mainProductsPage.increaseTheQuantityProducts();
-        mainProductsPage.goToMyCartPageProducts();
-        mainProductsPage.waitOpeningPageMyCartPageProducts();
-        Assert.assertEquals(mainProductsPage.getQuantityProductsOnMyCartPageOfProducts("Blouse"), EXPECTED_RESULT_QUANTITY_PRODUCTS);
-        Assert.assertEquals(mainProductsPage.getTotalPriceSomeItemsProduct("Blouse"), EXPECTED_RESULT_TOTAL_PRICE_SOME_ITEMS);
     }
 }

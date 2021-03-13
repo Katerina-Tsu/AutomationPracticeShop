@@ -27,19 +27,6 @@ public class MainProductsPage extends HeaderPage {
 
     String productNameOnMainPageText = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
 
-    @FindBy(xpath = "//*[@class='icon-plus']")
-    WebElement increaseTheQuantityProductsButton;
-
-    @FindBy(xpath = "//*[@id='layer_cart']//self::*[contains(text(),'Proceed to checkout')]")
-    WebElement proceedToCheckoutButton;
-
-    @FindBy(xpath = "//*[@id='cart_title']//self::*[contains(text(),'Shopping-cart summary')]")
-    WebElement myCartPageWithProductsLabel;
-
-    String quantityProductsOnCartPage = "//*[@name='quantity_2_7_0_0']";
-
-    String totalPriceSomeItemsProduct = "//*[@id='total_product_price_2_7_0']";
-
     public MainProductsPage(WebDriver driver) {
         super(driver);
     }
@@ -50,27 +37,6 @@ public class MainProductsPage extends HeaderPage {
 
     public void findProductNameOnMainPage(String productNameItem) {
         driver.findElement(By.xpath(String.format(productNameOnMainPageText, productNameItem))).click();
-    }
-
-    public void increaseTheQuantityProducts() {
-        increaseTheQuantityProductsButton.click();
-        addToCartButton.click();
-    }
-
-    public void waitOpeningPageMyCartPageProducts() {
-        wait.until(ExpectedConditions.visibilityOf(myCartPageWithProductsLabel));
-    }
-
-    public void goToMyCartPageProducts() {
-        proceedToCheckoutButton.click();
-    }
-
-    public String getQuantityProductsOnMyCartPageOfProducts(String productNameItem) {
-        return driver.findElement(By.xpath(String.format(quantityProductsOnCartPage, productNameItem))).getAttribute("value");
-    }
-
-    public String getTotalPriceSomeItemsProduct(String productNameItem) {
-        return driver.findElement(By.xpath(String.format(totalPriceSomeItemsProduct, productNameItem))).getText();
     }
 
     public void clickAddToCartButton() {
