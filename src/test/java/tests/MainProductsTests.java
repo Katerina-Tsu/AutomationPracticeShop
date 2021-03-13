@@ -29,7 +29,9 @@ public class MainProductsTests extends BaseTest{
         mainProductsPage.openPage(AUTOMATION_PRACTICE_SHOP_URL);
         mainProductsPage.findProductNameOnMainPage("Blouse");
         mainProductsPage.increaseTheQuantityProducts();
-        mainProductsPage.waitOpeningPageMyCartPageWithProducts();
-        Assert.assertEquals(mainProductsPage.getQuantityProductsOnMyCartPageOfProducts(), EXPECTED_RESULT_QUANTITY_PRODUCTS);
+        mainProductsPage.goToMyCartPageProducts();
+        mainProductsPage.waitOpeningPageMyCartPageProducts();
+        Assert.assertEquals(mainProductsPage.getQuantityProductsOnMyCartPageOfProducts("Blouse"), EXPECTED_RESULT_QUANTITY_PRODUCTS);
+        Assert.assertEquals(mainProductsPage.getTotalPriceSomeItemsProduct("Blouse"), EXPECTED_RESULT_TOTAL_PRICE_SOME_ITEMS);
     }
 }
