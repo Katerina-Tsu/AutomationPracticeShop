@@ -66,7 +66,7 @@ public class MyAccountPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='htmlcontent_top']")
     WebElement mainStorePageLabel;
 
-    public void waitForPageOpened() {
+    public void waitForMyAccountPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By) myAccountPageLabel));
     }
 

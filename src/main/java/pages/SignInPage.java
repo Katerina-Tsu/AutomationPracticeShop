@@ -38,7 +38,6 @@ public class SignInPage extends HeaderPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By) createAnAccountLabel));
     }
 
-
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();
@@ -54,11 +53,5 @@ public class SignInPage extends HeaderPage {
 
     public void openPage(String url) {
         super.openPage(SIGN_IN_URL);
-    }
-
-    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
-        emailFieldSignIn.sendKeys(emailAddress);
-        passwordFieldSignIn.sendKeys(password);
-        signInButton.click();
     }
 }

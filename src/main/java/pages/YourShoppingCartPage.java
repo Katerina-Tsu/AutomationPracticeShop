@@ -20,25 +20,48 @@ public class YourShoppingCartPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
     WebElement addToCartButton;
 
-    String productNameOnMainPageText = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
+    @FindBy(xpath = "//*[@id='email']")
+    WebElement emailFieldSignIn;
+
+    @FindBy(xpath = "//*[@id='passwd']")
+    WebElement passwordFieldSignIn;
+
+    @FindBy(xpath = "//*[@id='SubmitLogin']")
+    WebElement signInButton;
 
     @FindBy(xpath = "//*[@class='icon-plus']")
     WebElement increaseTheQuantityProductsButton;
 
-    @FindBy(xpath = "//*[@class='icon-trash']")
-    WebElement trashButton;
-
-    @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
-    WebElement addToCartButton;
-
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Your shopping cart is empty.')]")
     WebElement shoppingCartIsEmptyText;
+
+    @FindBy(xpath = "//*[@class='ajax_cart_no_product']")
+    WebElement shoppingCartIsEmptyHeaderText;
 
     @FindBy(xpath = "//*[@id='layer_cart']//self::*[contains(text(),'Proceed to checkout')]")
     WebElement proceedToCheckoutButton;
 
+    @FindBy(xpath = "//*[@id='center_column']//self::*[contains(text(),'Proceed to checkout')]")
+    WebElement proceedToCheckoutShCSumBtn;
+
+    @FindBy(xpath = "//*[@id='cgv']")
+    WebElement iAgreeCheckBox;
+
+    @FindBy(xpath = "//*[@class='bankwire']")
+    WebElement payBankWire;
+
+    @FindBy(xpath = "//*[@id='cart_navigation']//ancestor::*[contains(text(),'I confirm my order')]")
+    WebElement paymentEndBtnIConf;
+
     @FindBy(xpath = "//*[@id='cart_title']//self::*[contains(text(),'Shopping-cart summary')]")
     WebElement myCartPageWithProductsLabel;
+
+    @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'My account')]")
+    WebElement myAccountPageLabel;
+
+    String productNameOnMainPageText = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
+
+    String trashButton = "//*[@class='cart_quantity_delete']";
 
     String quantityProductsOnCartPage = "//*[@name='quantity_2_7_0_0']";
 
@@ -50,6 +73,12 @@ public class YourShoppingCartPage extends HeaderPage {
 //        wait.until(ExpectedConditions.visibilityOf(cartStorePageLabel));
 //    }
 
+    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
+        emailFieldSignIn.sendKeys(emailAddress);
+        passwordFieldSignIn.sendKeys(password);
+        signInButton.click();
+    }
+
     public void findProductNameOnMainPage(String productNameItem) {
         driver.findElement(By.xpath(String.format(productNameOnMainPageText, productNameItem))).click();
     }
@@ -59,12 +88,29 @@ public class YourShoppingCartPage extends HeaderPage {
         addToCartButton.click();
     }
 
+    public void checkedTabShipping() {
+        iAgreeCheckBox.click();
+        proceedToCheckoutShCSumBtn.click();
+    }
+
     public void waitOpeningPageMyCartPageProducts() {
         wait.until(ExpectedConditions.visibilityOf(myCartPageWithProductsLabel));
     }
 
     public void goToMyCartPageProducts() {
         proceedToCheckoutButton.click();
+    }
+
+    public void goToNextPage() {
+        proceedToCheckoutShCSumBtn.click();
+    }
+
+    public void clickBankWireBtn() {
+        payBankWire.click();
+    }
+
+    public void paymentBtn() {
+        paymentEndBtnIConf.click();
     }
 
     public String getQuantityProductsOnMyCartPageOfProducts(String productNameItem) {
@@ -76,13 +122,22 @@ public class YourShoppingCartPage extends HeaderPage {
     }
 
     public void clickAddToCartButton() {
-        addToCartButton.getText();
+        addToCartButton.click();
+    }
 
-    public void clickTrashButton(){
-        trashButton.click();
+    public void clickTrashButton(String productNameItem) {
+        driver.findElement(By.xpath(String.format(trashButton, productNameItem))).click();
     }
 
     public String getShoppingCartIsEmptyText() {
         return shoppingCartIsEmptyText.getText();
+    }
+
+    public String getShoppingCartIsEmptyHeaderText() {
+        return shoppingCartIsEmptyHeaderText.getText();
+    }
+
+    public void waitForMyAccountPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By) myAccountPageLabel));
     }
 }

@@ -8,6 +8,5 @@ public interface CommonConstants {
     String SIGN_IN_URL = AUTOMATION_PRACTICE_SHOP_URL + "?controller=authentication&back=my-account";
     String MY_ACCOUNT_PAGE_URL = AUTOMATION_PRACTICE_SHOP_URL + "?controller=my-account";
     String PRODUCT_NAME_ON_MAIN_PAGE = "//*[@id='homefeatured']//self::*[contains(text(),'Blouse')]";
-//    "//*[text() = '%s']/ancestor::*[@class='inventory_item']//button"
 //*[@class='product-container']//ancestor::*[contains(text(),'%s')]
 }
