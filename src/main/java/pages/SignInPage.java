@@ -1,10 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SignInPage extends HeaderPage {
 
@@ -31,11 +29,6 @@ public class SignInPage extends HeaderPage {
 
     public SignInPage(WebDriver driver) {
         super(driver);
-    }
-
-
-    public void waitForPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By) createAnAccountLabel));
     }
 
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {

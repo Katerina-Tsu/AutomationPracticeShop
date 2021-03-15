@@ -8,18 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class YourShoppingCartPage extends HeaderPage {
 
-    @FindBy(xpath = "//*[@id='email_create']")
-    WebElement emailAddressFieldInput;
-
-    @FindBy(xpath = "//*[@id='SubmitCreate']")
-    WebElement createAnAccountButton;
-
-    @FindBy(xpath = "//*[@class='cross']")
-    WebElement cartStorePageLabel;
-
-    @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
-    WebElement addToCartButton;
-
     @FindBy(xpath = "//*[@id='email']")
     WebElement emailFieldSignIn;
 
@@ -29,8 +17,14 @@ public class YourShoppingCartPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='SubmitLogin']")
     WebElement signInButton;
 
+    @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
+    WebElement addToCartButton;
+
     @FindBy(xpath = "//*[@class='icon-plus']")
     WebElement increaseTheQuantityProductsButton;
+
+    @FindBy(xpath = "//*[@id='cart_title']//self::*[contains(text(),'Shopping-cart summary')]")
+    WebElement myCartPageWithProductsLabel;
 
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Your shopping cart is empty.')]")
     WebElement shoppingCartIsEmptyText;
@@ -53,8 +47,8 @@ public class YourShoppingCartPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='cart_navigation']//ancestor::*[contains(text(),'I confirm my order')]")
     WebElement paymentEndBtnIConf;
 
-    @FindBy(xpath = "//*[@id='cart_title']//self::*[contains(text(),'Shopping-cart summary')]")
-    WebElement myCartPageWithProductsLabel;
+    @FindBy(xpath = "//*[@class='cheque-indent']//ancestor::*[contains(text(),'Your order on My Store is complete.')]")
+    WebElement orderIsCompleteText;
 
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'My account')]")
     WebElement myAccountPageLabel;
@@ -67,11 +61,9 @@ public class YourShoppingCartPage extends HeaderPage {
 
     String totalPriceSomeItemsProduct = "//*[@id='total_product_price_2_7_0']";
 
-    public YourShoppingCartPage(WebDriver driver) { super(driver); }
-
-//    public void waitForPageOpened() {
-//        wait.until(ExpectedConditions.visibilityOf(cartStorePageLabel));
-//    }
+    public YourShoppingCartPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
         emailFieldSignIn.sendKeys(emailAddress);
@@ -93,10 +85,6 @@ public class YourShoppingCartPage extends HeaderPage {
         proceedToCheckoutShCSumBtn.click();
     }
 
-    public void waitOpeningPageMyCartPageProducts() {
-        wait.until(ExpectedConditions.visibilityOf(myCartPageWithProductsLabel));
-    }
-
     public void goToMyCartPageProducts() {
         proceedToCheckoutButton.click();
     }
@@ -107,6 +95,14 @@ public class YourShoppingCartPage extends HeaderPage {
 
     public void clickBankWireBtn() {
         payBankWire.click();
+    }
+
+    public void clickAddToCartButton() {
+        addToCartButton.click();
+    }
+
+    public void clickTrashButton(String productNameItem) {
+        driver.findElement(By.xpath(String.format(trashButton, productNameItem))).click();
     }
 
     public void paymentBtn() {
@@ -121,14 +117,6 @@ public class YourShoppingCartPage extends HeaderPage {
         return driver.findElement(By.xpath(String.format(totalPriceSomeItemsProduct, productNameItem))).getText();
     }
 
-    public void clickAddToCartButton() {
-        addToCartButton.click();
-    }
-
-    public void clickTrashButton(String productNameItem) {
-        driver.findElement(By.xpath(String.format(trashButton, productNameItem))).click();
-    }
-
     public String getShoppingCartIsEmptyText() {
         return shoppingCartIsEmptyText.getText();
     }
@@ -138,6 +126,14 @@ public class YourShoppingCartPage extends HeaderPage {
     }
 
     public void waitForMyAccountPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By) myAccountPageLabel));
+        wait.until(ExpectedConditions.visibilityOf(myAccountPageLabel));
+    }
+
+    public void waitOpeningPageMyCartPageProducts() {
+        wait.until(ExpectedConditions.visibilityOf(myCartPageWithProductsLabel));
+    }
+
+    public boolean findOrderIsCompletePage() {
+        return orderIsCompleteText.isDisplayed();
     }
 }

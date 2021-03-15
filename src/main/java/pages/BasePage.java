@@ -15,7 +15,6 @@ public class BasePage implements CommonConstants {
         PageFactory.initElements(driver, this);
     }
 
-
     public void openPage(String url) {
         driver.get(url);
     }

@@ -1,7 +1,9 @@
 package test_data;
 
 public interface TestConstants {
-    String EMAIL_ADDRESS = "sss.ivanov.customer@mail.ru";
+    String NOT_REGISTERED_EMAIL_ADDRESS = "din.ivanov.customer@mail.ru";
+    String NEW_NOT_REGISTERED_EMAIL = "chris.pratt.customer@mail.ru";
+    String REGISTERED_EMAIL_ADDRESS = "sss.ivanov.customer@mail.ru";
     String EMPTY_EMAIL_ADDRESS = "";
     String WRONG_EMAIL_ADDRESS = "ivanov";
     String FIELD_PASSWORD = "rfvtgb123";

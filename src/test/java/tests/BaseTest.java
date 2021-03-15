@@ -18,6 +18,7 @@ public class BaseTest implements TestConstants {
     MyAccountPage myAccountPage;
     MainProductsPage mainProductsPage;
     YourShoppingCartPage yourShoppingCartPage;
+    HeaderPage headerPage;
 
     @BeforeMethod
     public void initTest() {
@@ -40,5 +41,6 @@ public class BaseTest implements TestConstants {
         myAccountPage = new MyAccountPage(driver);
         mainProductsPage = new MainProductsPage(driver);
         yourShoppingCartPage = new YourShoppingCartPage(driver);
+        headerPage = new HeaderPage(driver);
     }
 }

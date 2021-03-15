@@ -19,13 +19,13 @@ public class YourShoppingCartTests extends BaseTest{
         Assert.assertEquals(yourShoppingCartPage.getTotalPriceSomeItemsProduct("Blouse"), EXPECTED_RESULT_TOTAL_PRICE_SOME_ITEMS);
     }
 
-    @Test(groups = "Katia. Payment.steps 04.Shipping -  tick a “ I agree to terms.. ”. Pay by bank wire. Button “I confirm my order”.")
+    @Test(groups = "Katia. Payment.steps 04.Shipping -  tick a “ I agree to terms.. ”. 0.5  - Pay by bank wire. Button “I confirm my order”.")
     public void makeEntirePaymentCycle() {
         yourShoppingCartPage.openPage(SIGN_IN_URL);
-        yourShoppingCartPage.fillInEmailAndClickSignInBtn(EMAIL_ADDRESS, FIELD_PASSWORD);
+        yourShoppingCartPage.fillInEmailAndClickSignInBtn(REGISTERED_EMAIL_ADDRESS, FIELD_PASSWORD);
         yourShoppingCartPage.waitForMyAccountPageOpened();
-        yourShoppingCartPage.clickMenuWomenHeaderLink();
-        yourShoppingCartPage.clickProductName("Printed Chiffon Dress'");
+        yourShoppingCartPage.clickMenuHeaderLink("Women");
+        yourShoppingCartPage.clickProductName("Printed Chiffon Dress");
         yourShoppingCartPage.clickAddToCartButton();
         yourShoppingCartPage.goToMyCartPageProducts();
         yourShoppingCartPage.goToNextPage();
@@ -33,6 +33,7 @@ public class YourShoppingCartTests extends BaseTest{
         yourShoppingCartPage.checkedTabShipping();
         yourShoppingCartPage.clickBankWireBtn();
         yourShoppingCartPage.paymentBtn();
+        Assert.assertTrue(yourShoppingCartPage.findOrderIsCompletePage());
     }
 
     @Test(groups = "Katia. Checking product removal from the cart.")
@@ -45,6 +46,5 @@ public class YourShoppingCartTests extends BaseTest{
         yourShoppingCartPage.waitOpeningPageMyCartPageProducts();
         Assert.assertEquals(yourShoppingCartPage.getShoppingCartIsEmptyHeaderText(), EXPECTED_RESULT_EMPTY_SHPCART_HEADER_TEXT);
         Assert.assertEquals(yourShoppingCartPage.getShoppingCartIsEmptyText(), EXPECTED_RESULT_EMPTY_SHPCART_TEXT);
-
     }
 }

@@ -10,7 +10,7 @@ public class SignInTests extends BaseTest {
     @Test(groups = "Katia. When inputted right email. After that, We went to Create an account page.")
     public void createAnAccountTest() {
         signInPage.openPage(SIGN_IN_URL);
-        signInPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
+        signInPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
         Assert.assertTrue(signInPage.isPageOpened());
     }
 

@@ -10,7 +10,7 @@ public class CreateAnAccountTests extends BaseTest {
     @Test(groups = "Katia. Empty email address verification.")
     public void firstnameFieldIsEmptyTest() {
         createAnAccountPage.openPage(SIGN_IN_URL);
-        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
+        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
         createAnAccountPage.inputTextInFormFirstNameAndClickRegistr(EMPTY_FIELD_FIRST_NAME);
         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
     }
@@ -18,7 +18,7 @@ public class CreateAnAccountTests extends BaseTest {
     @Test(groups = "Katia. Input short-zipcode verification.")
     public void inputLongPasswordTest() {
         createAnAccountPage.openPage(SIGN_IN_URL);
-        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
+        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
         createAnAccountPage.inputShortPswrdInField(SHORT_ZIPCODE);
         Assert.assertEquals(createAnAccountPage.getShortPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
     }
@@ -26,7 +26,7 @@ public class CreateAnAccountTests extends BaseTest {
     @Test(groups = "Katia. Create an account.The required form fields are filled. Registration is complete.")
     public void allRequiredFieldsAreFilled() {
         createAnAccountPage.openPage(SIGN_IN_URL);
-        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(EMAIL_ADDRESS);
+        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NEW_NOT_REGISTERED_EMAIL);
         createAnAccountPage.inputTextInRequiredFieldsFormAndReg(FIELD_YOUR_FIRSTNAME,
                 FIELD_YOUR_LASTNAME,
                 FIELD_PASSWORD,

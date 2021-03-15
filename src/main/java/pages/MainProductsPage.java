@@ -17,8 +17,6 @@ public class MainProductsPage extends HeaderPage {
     @FindBy(xpath = "//*[@class='cross']")
     WebElement cartStorePageLabel;
 
-//    String addToCartBtn = "//*[@id='homefeatured']//self::*[contains(text(),'Add to cart')]";
-
     @FindBy(xpath = "//*[@class='icon-ok']")
     WebElement tickProductAddedToCartLabel;
 
@@ -40,14 +38,10 @@ public class MainProductsPage extends HeaderPage {
     }
 
     public void clickAddToCartButton() {
-        addToCartButton.getText();
+        addToCartButton.click();
     }
 
     public boolean isTickProductAddedToCartPageOpened() {
         return tickProductAddedToCartLabel.isDisplayed();
     }
-
-    //    public void addProductToCartOnMainPage(String productNameItem) { // TODO - There are need to do RIGHT METHOD.
-//        driver.findElement(By.xpath(String.format(addToCartBtn, productNameItem))).click();
-//    }
 }

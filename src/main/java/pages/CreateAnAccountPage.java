@@ -1,10 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CreateAnAccountPage extends BasePage {
 
@@ -66,17 +64,13 @@ public class CreateAnAccountPage extends BasePage {
     WebElement fieldAssignAddress;
 
     @FindBy(xpath = "//*[@id='my-account']")
-    WebElement myAccountLabel;
+    WebElement myAccountTab;
 
     @FindBy(xpath = "//*[@id='alias']")
     WebElement textInFieldAssignAnAddress;
 
     public CreateAnAccountPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void waitForPageOpened() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By) yourPersonalInfoLabel));
     }
 
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
@@ -125,6 +119,6 @@ public class CreateAnAccountPage extends BasePage {
     }
 
     public boolean isMainStorePageOpened() {
-        return myAccountLabel.isDisplayed();
+        return myAccountTab.isDisplayed();
     }
 }
