@@ -21,6 +21,22 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//*[@id='create_account_error']//ancestor::*[contains(text(),'Invalid email address.')]")
     WebElement errorWrongEmailAddressInField;
 
+    @FindBy(xpath = "//*[@id='email']")
+    WebElement emailAddressFieldInputSignIn;
+
+    @FindBy(xpath = "//*[@id='passwd']")
+    WebElement passwordFieldInputSignIn;
+
+    @FindBy(xpath = "//*[@id='SubmitLogin']")
+    WebElement signInButton;
+
+    @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Authentication failed.')]")
+    WebElement signInErrorText;
+
+    @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(),'Anton Ivanov')]")
+    WebElement headerPageLabel;
+
+
     @Override
     void waitForPageOpened() {
         //TODO: Implement this method
@@ -31,6 +47,12 @@ public class SignInPage extends BasePage {
         createAnAccountButton.click();
     }
 
+    public void fillInSignInAndBtn(String emailAddress, String password) {
+        emailAddressFieldInputSignIn.sendKeys(emailAddress);
+        passwordFieldInputSignIn.sendKeys(password);
+        signInButton.click();
+    }
+
     public boolean isPageOpened() {
         return createAnAccountLabel.isDisplayed();
     }
@@ -39,7 +61,16 @@ public class SignInPage extends BasePage {
         return errorWrongEmailAddressInField.getText();
     }
 
+    public String getErrorTextSignIn() {
+        return signInErrorText.getText();
+    }
+
     public void openPage(String url) {
         super.openPage(SIGN_IN_URL);
     }
+
+    public boolean isMainPageOpened() {
+        return headerPageLabel.isDisplayed();
+    }
+
 }

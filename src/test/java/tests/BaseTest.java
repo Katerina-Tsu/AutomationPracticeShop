@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.CreateAnAccountPage;
 import pages.SignInPage;
+import pages.SignOutPage;
 import test_data.TestConstants;
 
 import java.util.concurrent.TimeUnit;
@@ -15,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest implements TestConstants {
     WebDriver driver;
     SignInPage signInPage;
+    SignOutPage signOutPage;
     CreateAnAccountPage createAnAccountPage;
 
     @BeforeMethod
@@ -34,6 +36,7 @@ public class BaseTest implements TestConstants {
 
     public void initPage() {
         signInPage = new SignInPage(driver);
+        signOutPage = new SignOutPage(driver);
         createAnAccountPage = new CreateAnAccountPage(driver);
     }
 }
