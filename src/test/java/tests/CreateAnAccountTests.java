@@ -7,7 +7,7 @@ import static constants.CommonConstants.SIGN_IN_URL;
 
 public class CreateAnAccountTests extends BaseTest {
 
-    @Test(groups = "Katia. Empty email address verification.")
+    @Test(groups = "Katia", description = "Empty email address verification.", priority = 3)
     public void firstnameFieldIsEmptyTest() {
         createAnAccountPage.openPage(SIGN_IN_URL);
         createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
@@ -15,7 +15,7 @@ public class CreateAnAccountTests extends BaseTest {
         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
     }
 
-    @Test(groups = "Katia. Input short-zipcode verification.")
+    @Test(groups = "Katia", description = "Input short-zipcode verification.", priority = 3)
     public void inputLongPasswordTest() {
         createAnAccountPage.openPage(SIGN_IN_URL);
         createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
@@ -23,7 +23,7 @@ public class CreateAnAccountTests extends BaseTest {
         Assert.assertEquals(createAnAccountPage.getShortPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
     }
 
-    @Test(groups = "Katia. Create an account.The required form fields are filled. Registration is complete.")
+    @Test(groups = "Katia", description = "Create an account.The required form fields are filled. Registration is complete.", priority = 1)
     public void allRequiredFieldsAreFilled() {
         createAnAccountPage.openPage(SIGN_IN_URL);
         createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NEW_NOT_REGISTERED_EMAIL);

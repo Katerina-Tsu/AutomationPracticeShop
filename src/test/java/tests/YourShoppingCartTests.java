@@ -8,7 +8,7 @@ import static constants.CommonConstants.SIGN_IN_URL;
 
 public class YourShoppingCartTests extends BaseTest{
 
-    @Test(groups = "Katia. Add multiple products to cart.")
+    @Test(groups = "Katia", description = "Add multiple products to cart.", priority = 1)
     public void findMultipleProductsToCart() {
         yourShoppingCartPage.openPage(AUTOMATION_PRACTICE_SHOP_URL);
         yourShoppingCartPage.findProductNameOnMainPage("Blouse");
@@ -19,7 +19,7 @@ public class YourShoppingCartTests extends BaseTest{
         Assert.assertEquals(yourShoppingCartPage.getTotalPriceSomeItemsProduct("Blouse"), EXPECTED_RESULT_TOTAL_PRICE_SOME_ITEMS);
     }
 
-    @Test(groups = "Katia. Payment.steps 04.Shipping -  tick a “ I agree to terms.. ”. 0.5  - Pay by bank wire. Button “I confirm my order”.")
+    @Test(groups = "Katia", description = "Payment. Tick a “ I agree to terms.. ”. Pay by bank wire. Button “I confirm my order”", priority = 2)
     public void makeEntirePaymentCycle() {
         yourShoppingCartPage.openPage(SIGN_IN_URL);
         yourShoppingCartPage.fillInEmailAndClickSignInBtn(REGISTERED_EMAIL_ADDRESS, FIELD_PASSWORD);
@@ -36,7 +36,7 @@ public class YourShoppingCartTests extends BaseTest{
         Assert.assertTrue(yourShoppingCartPage.findOrderIsCompletePage());
     }
 
-    @Test(groups = "Katia. Checking product removal from the cart.")
+    @Test(groups = "Katia", description = "Checking product removal from the cart.", priority = 3)
     public void deletingProductFromCart() {
         yourShoppingCartPage.openPage(AUTOMATION_PRACTICE_SHOP_URL);
         yourShoppingCartPage.findProductNameOnMainPage("Blouse");
