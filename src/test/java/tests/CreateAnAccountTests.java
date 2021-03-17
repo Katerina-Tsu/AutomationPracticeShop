@@ -11,7 +11,7 @@ public class CreateAnAccountTests extends BaseTest {
     public void firstnameFieldIsEmptyTest() {
         createAnAccountPage.openPage(SIGN_IN_URL);
         createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
-        createAnAccountPage.inputTextInFormFirstNameAndClickRegistr(EMPTY_FIELD_FIRST_NAME);
+        createAnAccountPage.inputTextInFormFirstNameAndClickRegister(EMPTY_FIELD_FIRST_NAME);
         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
     }
 
@@ -25,14 +25,14 @@ public class CreateAnAccountTests extends BaseTest {
 
     @Test(groups = "Katia", description = "Create an account.The required form fields are filled. Registration is complete.",
             priority = 1, dataProvider = "Input data for the 'create an account' page.", dataProviderClass = TestDataProviders.class)
-    public void createAnAccountTest(String emailAddress, String yourFirstName, String yourLastName, String passwordField,
+    public void createAnAccountTest(String emailAddress, String yourFirstName, String yourLastName, String password,
                                     String firstNameCompany, String lastNameCompany, String addressCompany,
-                                    String city, String zipCode, String phoneNumber, String assignCompanyName) {
+                                    String city, String state, String zipCode, String country, String phoneNumber, String assignCompanyName) {
         createAnAccountPage.openPage(SIGN_IN_URL);
         createAnAccountPage.fillInEmailAndClickCreateAccountBtn(emailAddress);
         createAnAccountPage.inputTextInRequiredFieldsFormAndReg(yourFirstName,
                 yourLastName,
-                passwordField,
+                password,
                 firstNameCompany,
                 lastNameCompany,
                 addressCompany,
@@ -41,6 +41,9 @@ public class CreateAnAccountTests extends BaseTest {
                 phoneNumber,
                 assignCompanyName
         );
+        createAnAccountPage.chooseState(state);
+        createAnAccountPage.chooseCountry(country);
+        createAnAccountPage.clickRegisterButton();
         Assert.assertTrue(createAnAccountPage.isMainStorePageOpened());
     }
 }

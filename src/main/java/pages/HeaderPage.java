@@ -53,7 +53,7 @@ public class HeaderPage extends BasePage {
         createAnAccountButton.click();
     }
 
-    public void signOutBtnOnMyAccPage() {
+    public void clickSignOutBtnOnMyAccPage() {
         signOutBtn.click();
     }
 

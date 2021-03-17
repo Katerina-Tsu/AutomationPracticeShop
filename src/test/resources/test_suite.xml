@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Regression Test" parallel="tests" thread-count="2">
+<suite name="Regression Test" parallel="classes" thread-count="2">
     <test name="test 1">
-        <groups>
-            <run>
-                <include name="slow" />
-            </run>
-        </groups>
         <classes>
-            <class name="testng.TestNGExampleTest" />
+            <class name="tests.SignInTests" />
+            <class name="tests.YourShoppingCartTests" />
         </classes>
     </test> <!-- Test -->
     <test name="test 2">
         <classes>
-            <class name="testng.TestNGExampleTest" />
+            <class name="tests.HeaderTest" />
+            <class name="tests.MainProductsTests" />
         </classes>
     </test> <!-- Test -->
 </suite>

@@ -11,12 +11,12 @@ public class YourShoppingCartTests extends BaseTest{
     @Test(groups = "Katia", description = "Add multiple products to cart.", priority = 1)
     public void findMultipleProductsToCart() {
         yourShoppingCartPage.openPage(AUTOMATION_PRACTICE_SHOP_URL);
-        yourShoppingCartPage.findProductNameOnMainPage("Blouse");
-        yourShoppingCartPage.increaseQuantityProducts();
-        yourShoppingCartPage.goToMyCartPageProducts();
-        yourShoppingCartPage.waitOpeningPageMyCartPageProducts();
-        Assert.assertEquals(yourShoppingCartPage.getQuantityProductsOnMyCartPageOfProducts("Blouse"), EXPECTED_RESULT_QUANTITY_PRODUCTS);
-        Assert.assertEquals(yourShoppingCartPage.getTotalPriceSomeItemsProduct("Blouse"), EXPECTED_RESULT_TOTAL_PRICE_SOME_ITEMS);
+        yourShoppingCartPage.findProductNameOnPage("Blouse");
+        yourShoppingCartPage.increaseProductsQuantity();
+        yourShoppingCartPage.clickProceedToCheckoutButton();
+        yourShoppingCartPage.waitForMyCartPageIsOpened();
+        Assert.assertEquals(yourShoppingCartPage.getProductsQuantityOnMyCartPage("Blouse"), EXPECTED_RESULT_QUANTITY_PRODUCTS);
+        Assert.assertEquals(yourShoppingCartPage.getTotalPriceProducts("Blouse"), EXPECTED_RESULT_TOTAL_PRICE_SOME_ITEMS);
     }
 
     @Test(groups = "Katia",
@@ -29,23 +29,23 @@ public class YourShoppingCartTests extends BaseTest{
         yourShoppingCartPage.clickMenuHeaderLink("Women");
         yourShoppingCartPage.clickProductName("Printed Chiffon Dress");
         yourShoppingCartPage.clickAddToCartButton();
-        yourShoppingCartPage.goToMyCartPageProducts();
+        yourShoppingCartPage.clickProceedToCheckoutButton();
         yourShoppingCartPage.goToNextPage();
         yourShoppingCartPage.goToNextPage();
         yourShoppingCartPage.checkedTabShipping();
         yourShoppingCartPage.clickBankWireBtn();
-        yourShoppingCartPage.paymentBtn();
-        Assert.assertTrue(yourShoppingCartPage.findOrderIsCompletePage());
+        yourShoppingCartPage.clickPaymentBtn();
+        Assert.assertTrue(yourShoppingCartPage.isOrderIsCompleteTextDisplayed());
     }
 
     @Test(groups = "Katia", description = "Checking product removal from the cart.", priority = 3)
     public void deletingProductFromCart() {
         yourShoppingCartPage.openPage(AUTOMATION_PRACTICE_SHOP_URL);
-        yourShoppingCartPage.findProductNameOnMainPage("Blouse");
+        yourShoppingCartPage.findProductNameOnPage("Blouse");
         yourShoppingCartPage.clickAddToCartButton();
-        yourShoppingCartPage.goToMyCartPageProducts();
+        yourShoppingCartPage.clickProceedToCheckoutButton();
         yourShoppingCartPage.clickTrashButton("Blouse");
-        yourShoppingCartPage.waitOpeningPageMyCartPageProducts();
+        yourShoppingCartPage.waitForMyCartPageIsOpened();
         Assert.assertEquals(yourShoppingCartPage.getShoppingCartIsEmptyHeaderText(), EXPECTED_RESULT_EMPTY_SHPCART_HEADER_TEXT);
         Assert.assertEquals(yourShoppingCartPage.getShoppingCartIsEmptyText(), EXPECTED_RESULT_EMPTY_SHPCART_TEXT);
     }

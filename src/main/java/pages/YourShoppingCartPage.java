@@ -36,7 +36,7 @@ public class YourShoppingCartPage extends HeaderPage {
     WebElement proceedToCheckoutButton;
 
     @FindBy(xpath = "//*[@id='center_column']//self::*[contains(text(),'Proceed to checkout')]")
-    WebElement proceedToCheckoutShCSumBtn;
+    WebElement proceedToCheckoutOnShoppingCartSummaryButton;
 
     @FindBy(xpath = "//*[@id='cgv']")
     WebElement iAgreeCheckBox;
@@ -53,13 +53,13 @@ public class YourShoppingCartPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'My account')]")
     WebElement myAccountPageLabel;
 
-    String productNameOnMainPageText = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
+    String productNameOnPageText = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
 
     String trashButton = "//*[@class='cart_quantity_delete']";
 
-    String quantityProductsOnCartPage = "//*[@name='quantity_2_7_0_0']";
+    String quantityProductsOnCartPage = "//*[@class='cart_quantity_input form-control grey']";
 
-    String totalPriceSomeItemsProduct = "//*[@id='total_product_price_2_7_0']";
+    String totalPriceSomeItemsProduct = "//*[@class='cart_total']";
 
     public YourShoppingCartPage(WebDriver driver) {
         super(driver);
@@ -71,26 +71,26 @@ public class YourShoppingCartPage extends HeaderPage {
         signInButton.click();
     }
 
-    public void findProductNameOnMainPage(String productNameItem) {
-        driver.findElement(By.xpath(String.format(productNameOnMainPageText, productNameItem))).click();
+    public void findProductNameOnPage(String productNameItem) {
+        driver.findElement(By.xpath(String.format(productNameOnPageText, productNameItem))).click();
     }
 
-    public void increaseQuantityProducts() {
+    public void increaseProductsQuantity() {
         increaseTheQuantityProductsButton.click();
         addToCartButton.click();
     }
 
     public void checkedTabShipping() {
         iAgreeCheckBox.click();
-        proceedToCheckoutShCSumBtn.click();
+        proceedToCheckoutOnShoppingCartSummaryButton.click();
     }
 
-    public void goToMyCartPageProducts() {
+    public void clickProceedToCheckoutButton() {
         proceedToCheckoutButton.click();
     }
 
     public void goToNextPage() {
-        proceedToCheckoutShCSumBtn.click();
+        proceedToCheckoutOnShoppingCartSummaryButton.click();
     }
 
     public void clickBankWireBtn() {
@@ -105,15 +105,15 @@ public class YourShoppingCartPage extends HeaderPage {
         driver.findElement(By.xpath(String.format(trashButton, productNameItem))).click();
     }
 
-    public void paymentBtn() {
+    public void clickPaymentBtn() {
         paymentEndBtnIConf.click();
     }
 
-    public String getQuantityProductsOnMyCartPageOfProducts(String productNameItem) {
+    public String getProductsQuantityOnMyCartPage(String productNameItem) {
         return driver.findElement(By.xpath(String.format(quantityProductsOnCartPage, productNameItem))).getAttribute("value");
     }
 
-    public String getTotalPriceSomeItemsProduct(String productNameItem) {
+    public String getTotalPriceProducts(String productNameItem) {
         return driver.findElement(By.xpath(String.format(totalPriceSomeItemsProduct, productNameItem))).getText();
     }
 
@@ -129,11 +129,11 @@ public class YourShoppingCartPage extends HeaderPage {
         wait.until(ExpectedConditions.visibilityOf(myAccountPageLabel));
     }
 
-    public void waitOpeningPageMyCartPageProducts() {
+    public void waitForMyCartPageIsOpened() {
         wait.until(ExpectedConditions.visibilityOf(myCartPageWithProductsLabel));
     }
 
-    public boolean findOrderIsCompletePage() {
+    public boolean isOrderIsCompleteTextDisplayed() {
         return orderIsCompleteText.isDisplayed();
     }
 }
