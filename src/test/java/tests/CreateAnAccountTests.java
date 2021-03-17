@@ -23,20 +23,23 @@ public class CreateAnAccountTests extends BaseTest {
         Assert.assertEquals(createAnAccountPage.getShortPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
     }
 
-    @Test(groups = "Katia", description = "Create an account.The required form fields are filled. Registration is complete.", priority = 1)
-    public void allRequiredFieldsAreFilled() {
+    @Test(groups = "Katia", description = "Create an account.The required form fields are filled. Registration is complete.",
+            priority = 1, dataProvider = "Input data for the 'create an account' page.", dataProviderClass = TestDataProviders.class)
+    public void createAnAccountTest(String emailAddress, String yourFirstName, String yourLastName, String passwordField,
+                                    String firstNameCompany, String lastNameCompany, String addressCompany,
+                                    String city, String zipCode, String phoneNumber, String assignCompanyName) {
         createAnAccountPage.openPage(SIGN_IN_URL);
-        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NEW_NOT_REGISTERED_EMAIL);
-        createAnAccountPage.inputTextInRequiredFieldsFormAndReg(FIELD_YOUR_FIRSTNAME,
-                FIELD_YOUR_LASTNAME,
-                FIELD_PASSWORD,
-                FIELD_YOUR_FIRSTNAME_COMPANY,
-                FIELD_YOUR_LASTNAME_COMPANY,
-                FIELD_ADDRESS_COMPANY,
-                FIELD_NAME_CITY,
-                FIELD_ZIPCODE,
-                FIELD_MOB_PHONE,
-                FIELD_COMPANY_ASSIGN_NAME
+        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(emailAddress);
+        createAnAccountPage.inputTextInRequiredFieldsFormAndReg(yourFirstName,
+                yourLastName,
+                passwordField,
+                firstNameCompany,
+                lastNameCompany,
+                addressCompany,
+                city,
+                zipCode,
+                phoneNumber,
+                assignCompanyName
         );
         Assert.assertTrue(createAnAccountPage.isMainStorePageOpened());
     }

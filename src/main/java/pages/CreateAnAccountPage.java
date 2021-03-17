@@ -96,25 +96,24 @@ public class CreateAnAccountPage extends BasePage {
         return errorTextLongZipcode.getText();
     }
 
-    public void inputTextInRequiredFieldsFormAndReg(String firstName, String lastname,
-                                                    String pswrd, String firstnameCompany,
-                                                    String lastnameCompany, String yourAddress,
-                                                    String city, String zipCode, String mobPhone,
-                                                    String assignNameAddress) {
-        fieldYourFirstName.sendKeys(firstName);
-        fieldYourLastname.sendKeys(lastname);
+    public void inputTextInRequiredFieldsFormAndReg(String yourFirstName, String yourLastName, String passwordField,
+                                                    String firstNameCompany, String lastNameCompany,
+                                                    String addressCompany, String city, String zipCode,
+                                                    String phoneNumber, String assignCompanyName) {
+        fieldYourFirstName.sendKeys(yourFirstName);
+        fieldYourLastname.sendKeys(yourLastName);
         fieildEmail.click();
-        fieldPassword.sendKeys(pswrd);
-        fieldCompanyFirstname.sendKeys(firstnameCompany);
-        fieldCompanyLastname.sendKeys(lastnameCompany);
-        fieldYourAddress.sendKeys(yourAddress);
+        fieldPassword.sendKeys(passwordField);
+        fieldCompanyFirstname.sendKeys(firstNameCompany);
+        fieldCompanyLastname.sendKeys(lastNameCompany);
+        fieldYourAddress.sendKeys(addressCompany);
         fieldCity.sendKeys(city);
         fieldState.click();
         fieldZipCode.sendKeys(zipCode);
         fieldCountry.getText();
-        fieldMobPhone.sendKeys(mobPhone);
+        fieldMobPhone.sendKeys(phoneNumber);
         textInFieldAssignAnAddress.clear();
-        fieldAssignAddress.sendKeys(assignNameAddress);
+        fieldAssignAddress.sendKeys(assignCompanyName);
         registrationButton.click();
     }
 

@@ -19,7 +19,9 @@ public class YourShoppingCartTests extends BaseTest{
         Assert.assertEquals(yourShoppingCartPage.getTotalPriceSomeItemsProduct("Blouse"), EXPECTED_RESULT_TOTAL_PRICE_SOME_ITEMS);
     }
 
-    @Test(groups = "Katia", description = "Payment. Tick a “ I agree to terms.. ”. Pay by bank wire. Button “I confirm my order”", priority = 2)
+    @Test(groups = "Katia",
+            description = "Payment. Tick a 'I agree to terms'. Pay by bank wire. Button 'I confirm my order'",
+            priority = 2)
     public void makeEntirePaymentCycle() {
         yourShoppingCartPage.openPage(SIGN_IN_URL);
         yourShoppingCartPage.fillInEmailAndClickSignInBtn(REGISTERED_EMAIL_ADDRESS, FIELD_PASSWORD);
