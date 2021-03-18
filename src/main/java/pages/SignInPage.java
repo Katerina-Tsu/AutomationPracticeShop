@@ -4,10 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends BasePage {
-    public SignInPage(WebDriver driver) {
-        super(driver);
-    }
+public class SignInPage extends HeaderPage {
 
     @FindBy(xpath = "//*[@id='email_create']")
     WebElement emailAddressFieldInput;
@@ -21,9 +18,17 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//*[@id='create_account_error']//ancestor::*[contains(text(),'Invalid email address.')]")
     WebElement errorWrongEmailAddressInField;
 
-    @Override
-    void waitForPageOpened() {
-        //TODO: Implement this method
+    @FindBy(xpath = "//*[@id='email']")
+    WebElement emailFieldSignIn;
+
+    @FindBy(xpath = "//*[@id='passwd']")
+    WebElement passwordFieldSignIn;
+
+    @FindBy(xpath = "//*[@id='SubmitLogin']")
+    WebElement signInButton;
+
+    public SignInPage(WebDriver driver) {
+        super(driver);
     }
 
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {

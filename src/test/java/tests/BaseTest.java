@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.CreateAnAccountPage;
-import pages.SignInPage;
+import pages.*;
 import test_data.TestConstants;
 
 import java.util.concurrent.TimeUnit;
@@ -16,6 +15,10 @@ public class BaseTest implements TestConstants {
     WebDriver driver;
     SignInPage signInPage;
     CreateAnAccountPage createAnAccountPage;
+    MyAccountPage myAccountPage;
+    MainProductsPage mainProductsPage;
+    YourShoppingCartPage yourShoppingCartPage;
+    HeaderPage headerPage;
 
     @BeforeMethod
     public void initTest() {
@@ -35,5 +38,9 @@ public class BaseTest implements TestConstants {
     public void initPage() {
         signInPage = new SignInPage(driver);
         createAnAccountPage = new CreateAnAccountPage(driver);
+        myAccountPage = new MyAccountPage(driver);
+        mainProductsPage = new MainProductsPage(driver);
+        yourShoppingCartPage = new YourShoppingCartPage(driver);
+        headerPage = new HeaderPage(driver);
     }
 }
