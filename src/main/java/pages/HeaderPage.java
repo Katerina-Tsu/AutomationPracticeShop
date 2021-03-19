@@ -10,13 +10,13 @@ public class HeaderPage extends BasePage{
     }
 
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(), 'Sign out')]")
-    WebElement clickOnSignOutButton ;
+    WebElement signOutButton ;
 
     void waitForPageOpened() {
     }
 
     public void clickSignOutProfile() {
-        clickOnSignOutButton.click();
+        signOutButton.click();
     }
 
 }

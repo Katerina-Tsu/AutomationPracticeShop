@@ -34,7 +34,7 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Authentication failed.')]")
     WebElement signInErrorText;
 
-    private static final String HEADER_PAGE_LABEL = "//*[@id='header']//ancestor::*[contains(text(),'%s')]";
+    private static final String SIGNED_IN_USERNAME_LABEL_XPATH = "//*[@id='header']//ancestor::*[contains(text(),'%s')]";
 
     @Override
     void waitForPageOpened() {
@@ -69,8 +69,10 @@ public class SignInPage extends BasePage {
     }
 
     public boolean isHeaderLabelDisplayed(String headerText) {
-        return driver.findElement(By.xpath(String.format(HEADER_PAGE_LABEL, headerText))).isDisplayed();
+        return driver.findElement(By.xpath(String.format(SIGNED_IN_USERNAME_LABEL_XPATH, headerText))).isDisplayed();
     }
-    public boolean isSignInButtonDisplayed() { return signInButton.isDisplayed(); }
+    public boolean isSignedInUsernameDisplayed () { return signInButton.isDisplayed(); }
+
+
 
 }

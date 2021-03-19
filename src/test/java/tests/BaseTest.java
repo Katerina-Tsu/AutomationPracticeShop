@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.CreateAnAccountPage;
+import pages.CreateNewAddressPage;
 import pages.HeaderPage;
 import pages.SignInPage;
 import test_data.TestConstants;
@@ -18,6 +19,7 @@ public class BaseTest implements TestConstants {
     SignInPage signInPage;
     HeaderPage headerPage;
     CreateAnAccountPage createAnAccountPage;
+    CreateNewAddressPage createNewAddressPage;
 
     @BeforeMethod
     public void initTest() {
