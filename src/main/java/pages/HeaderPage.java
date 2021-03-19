@@ -9,27 +9,14 @@ public class HeaderPage extends BasePage{
         super(driver);
     }
 
-//    @FindBy(xpath = "//*[@id='email']")
-//    WebElement emailAddressFieldInputSignIn;
-//
-//    @FindBy(xpath = "//*[@id='passwd']")
-//    WebElement passwordFieldInputSignIn;
-
-//    @FindBy(xpath = "//*[@id='SubmitLogin']")
-//    WebElement signInButton;
-
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(), 'Sign out')]")
     WebElement clickOnSignOutButton ;
 
     void waitForPageOpened() {
     }
 
-    public void clickFillInSignInForm() {
-//        emailAddressFieldInputSignIn.sendKeys(emailAddress);
-//        passwordFieldInputSignIn.sendKeys(password);
-//        signInButton.click();
+    public void clickSignOutProfile() {
         clickOnSignOutButton.click();
     }
 
-//    public boolean isSignInButtonDisplayed() { return signInButton.isDisplayed(); }
 }
