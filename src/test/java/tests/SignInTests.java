@@ -28,25 +28,26 @@ public class SignInTests extends BaseTest {
         Assert.assertEquals(signInPage.getEmailAddressText(), WRONG_EMAIL_ADDRESS_MESSAGE);
     }
 
-    @Test(groups = "Sasha. Checked error text when input wrong email address")
+    @Test(groups = "Sasha", description = "Checked error text when input wrong email address")
     public void wrongEmailFieldSignInTest() {
         signInPage.openPage(SIGN_IN_URL);
-        signInPage.fillInSignInAndBtn(EMAIL_ADDRESS_WRONG_S, PASSWORD);
+        signInPage.fillInSignInForm(EMAIL_ADDRESS_WRONG_S, PASSWORD);
         Assert.assertEquals(signInPage.getErrorTextSignIn(), WRONG_EMAIL_ADDRESS_MESSAGE_SIGN_IN);
     }
 
-    @Test(groups = "Sasha. Checked when sign in is over")
+    @Test(groups = "Sasha", description = "Checked when sign in is over")
     public void rightDataSignInTest() {
         signInPage.openPage(SIGN_IN_URL);
-        signInPage.fillInSignInAndBtn(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        Assert.assertTrue(signInPage.isMainPageOpened());
+        signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
+        Assert.assertTrue(signInPage.isHeaderLabelDisplayed("Anton Ivanov"));
     }
 
-    @Test(groups = "Sasha. Checked when sign out is over")
-    public void signImSignOutTest() {
-        signOutPage.openPage(SIGN_IN_URL);
-        signOutPage.fillInSignInAndBtn(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        Assert.assertTrue(signOutPage.isMainPageClose());
+    @Test(groups = "Sasha", description = "Checked when sign out is over")
+    public void signInSignOutTest() {
+        signInPage.openPage(SIGN_IN_URL);
+        signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
+        headerPage.clickFillInSignInForm();
+        Assert.assertTrue(signInPage.isSignInButtonDisplayed());
     }
 
 }

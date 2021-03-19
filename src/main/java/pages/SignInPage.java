@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,9 +34,10 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Authentication failed.')]")
     WebElement signInErrorText;
 
-    @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(),'Anton Ivanov')]")
-    WebElement headerPageLabel;
+//    @FindBy(xpath = "//[@id='header']//ancestor::[contains(text(),'%s')]")
+//    WebElement headerPageLabel;
 
+    private static final String HEADER_PAGE_LABEL = "//*[@id='header']//ancestor::*[contains(text(),'%s')]";
 
     @Override
     void waitForPageOpened() {
@@ -47,7 +49,7 @@ public class SignInPage extends BasePage {
         createAnAccountButton.click();
     }
 
-    public void fillInSignInAndBtn(String emailAddress, String password) {
+    public void fillInSignInForm(String emailAddress, String password) {
         emailAddressFieldInputSignIn.sendKeys(emailAddress);
         passwordFieldInputSignIn.sendKeys(password);
         signInButton.click();
@@ -69,8 +71,13 @@ public class SignInPage extends BasePage {
         super.openPage(SIGN_IN_URL);
     }
 
-    public boolean isMainPageOpened() {
-        return headerPageLabel.isDisplayed();
+//    public boolean isHeaderLabelDisplayed() {
+//        return headerPageLabel.isDisplayed();
+//    }
+
+    public boolean isHeaderLabelDisplayed(String headerText) {
+        return driver.findElement(By.xpath(String.format(HEADER_PAGE_LABEL, headerText))).isDisplayed();
     }
+    public boolean isSignInButtonDisplayed() { return signInButton.isDisplayed(); }
 
 }
