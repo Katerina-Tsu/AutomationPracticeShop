@@ -8,21 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HeaderPage extends BasePage {
 
-//    @FindBy(xpath = "//*[@id='email']")
-//    WebElement emailFieldSignIn;
-//
-//    @FindBy(xpath = "//*[@id='passwd']")
-//    WebElement passwordFieldSignIn;
-
-//    @FindBy(xpath = "//*[@id='SubmitLogin']")
-//    WebElement signInButton;
-
-//    @FindBy(xpath = "//*[@id='email_create']")
-//    WebElement emailAddressFieldInput;
-
-//    @FindBy(xpath = "//*[@id='SubmitCreate']")
-//    WebElement createAnAccountButton;
-
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(),'Sign out')]")
     WebElement signOutBtn;
 
@@ -48,11 +33,6 @@ public class HeaderPage extends BasePage {
         driver.findElement(By.xpath(String.format(PRODUCT_NAME, productNameItem))).click();
     }
 
-//    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
-//        emailAddressFieldInput.sendKeys(emailAddress);
-//        createAnAccountButton.click();
-//    }
-
     public void clickSignOutBtnOnMyAccPage() {
         signOutBtn.click();
     }
@@ -64,10 +44,4 @@ public class HeaderPage extends BasePage {
     public void waitForMyAccountPageOpened() {
         wait.until(ExpectedConditions.visibilityOf(myAccountTextLabel));
     }
-
-//    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
-//        emailFieldSignIn.sendKeys(emailAddress);
-//        passwordFieldSignIn.sendKeys(password);
-//        signInButton.click();
-//    }
 }

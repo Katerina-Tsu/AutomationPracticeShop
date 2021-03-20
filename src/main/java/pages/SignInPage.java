@@ -31,10 +31,6 @@ public class SignInPage extends HeaderPage {
         super(driver);
     }
 
-//    public void openPage(String url) {
-//        super.openPage(SIGN_IN_URL);
-//    }
-
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();

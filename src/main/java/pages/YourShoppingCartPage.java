@@ -50,11 +50,6 @@ public class YourShoppingCartPage extends HeaderPage {
     @FindBy(xpath = "//*[@class='cheque-indent']//ancestor::*[contains(text(),'Your order on My Store is complete.')]")
     WebElement orderIsCompleteText;
 
-//    @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'My account')]")
-//    WebElement myAccountPageLabel;
-
-//    private static final String PRODUCT_NAME_ON_PAGE_TEXT = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
-
     private static final String TRASH_BUTTON = "//*[@class='cart_quantity_delete']";
 
     private static final String QUANTITY_PRODUCTS_ON_CART_PAGE = "//*[@class='cart_quantity_input form-control grey']";
@@ -64,16 +59,6 @@ public class YourShoppingCartPage extends HeaderPage {
     public YourShoppingCartPage(WebDriver driver) {
         super(driver);
     }
-
-//    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
-//        emailFieldSignIn.sendKeys(emailAddress);
-//        passwordFieldSignIn.sendKeys(password);
-//        signInButton.click();
-//    }
-
-//    public void findProductNameOnPage(String productNameItem) {
-//        driver.findElement(By.xpath(String.format(PRODUCT_NAME_ON_PAGE_TEXT, productNameItem))).click();
-//    }
 
     public void increaseProductsQuantity() {
         increaseTheQuantityProductsButton.click();
@@ -124,10 +109,6 @@ public class YourShoppingCartPage extends HeaderPage {
     public String getShoppingCartIsEmptyHeaderText() {
         return shoppingCartIsEmptyHeaderText.getText();
     }
-
-//    public void waitForMyAccountPageOpened() {
-//        wait.until(ExpectedConditions.visibilityOf(myAccountPageLabel));
-//    }
 
     public void waitForMyCartPageIsOpened() {
         wait.until(ExpectedConditions.visibilityOf(myCartPageWithProductsLabel));
