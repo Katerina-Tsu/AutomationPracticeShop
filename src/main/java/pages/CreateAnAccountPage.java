@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CreateAnAccountPage extends BasePage {
+public class CreateAnAccountPage extends HeaderPage {
 
-    @FindBy(xpath = "//*[@id='email_create']")
-    WebElement emailAddressFieldInput;
+//    @FindBy(xpath = "//*[@id='email_create']")
+//    WebElement emailAddressFieldInput;
 
-    @FindBy(xpath = "//*[@id='SubmitCreate']")
-    WebElement createAnAccountButton;
+//    @FindBy(xpath = "//*[@id='SubmitCreate']")
+//    WebElement createAnAccountButton;
 
     @FindBy(xpath = "//*[contains(text(),'Your personal information')]")
     WebElement yourPersonalInfoLabel;
@@ -72,10 +72,10 @@ public class CreateAnAccountPage extends BasePage {
         super(driver);
     }
 
-    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
-        emailAddressFieldInput.sendKeys(emailAddress);
-        createAnAccountButton.click();
-    }
+//    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
+//        emailAddressFieldInput.sendKeys(emailAddress);
+//        createAnAccountButton.click();
+//    }
 
     public void inputTextInFormFirstNameAndClickRegister(String firstName) {
         yourFirstNameField.sendKeys(firstName);

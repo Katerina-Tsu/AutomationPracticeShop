@@ -9,16 +9,16 @@ public class CreateAnAccountTests extends BaseTest {
 
     @Test(groups = "Katia", description = "Empty email address verification.", priority = 3)
     public void firstnameFieldIsEmptyTest() {
-        createAnAccountPage.openPage(SIGN_IN_URL);
-        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
+        signInPage.openPage(SIGN_IN_URL);
+        signInPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
         createAnAccountPage.inputTextInFormFirstNameAndClickRegister(EMPTY_FIELD_FIRST_NAME);
         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
     }
 
     @Test(groups = "Katia", description = "Input short-zipcode verification.", priority = 3)
     public void inputLongPasswordTest() {
-        createAnAccountPage.openPage(SIGN_IN_URL);
-        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
+        signInPage.openPage(SIGN_IN_URL);
+        signInPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
         createAnAccountPage.inputShortPswrdInField(SHORT_ZIPCODE);
         Assert.assertEquals(createAnAccountPage.getShortPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);
     }
@@ -28,8 +28,8 @@ public class CreateAnAccountTests extends BaseTest {
     public void createAnAccountTest(String emailAddress, String yourFirstName, String yourLastName, String password,
                                     String firstNameCompany, String lastNameCompany, String addressCompany,
                                     String city, String state, String zipCode, String country, String phoneNumber, String assignCompanyName) {
-        createAnAccountPage.openPage(SIGN_IN_URL);
-        createAnAccountPage.fillInEmailAndClickCreateAccountBtn(emailAddress);
+        signInPage.openPage(SIGN_IN_URL);
+        signInPage.fillInEmailAndClickCreateAccountBtn(emailAddress);
         createAnAccountPage.inputTextInRequiredFieldsFormAndReg(yourFirstName,
                 yourLastName,
                 password,

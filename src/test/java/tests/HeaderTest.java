@@ -9,8 +9,8 @@ public class HeaderTest extends BaseTest{
 
     @Test(groups = "Katia", description = "Sign out of my account")
     public void signOutTest() {
-        headerPage.openPage(SIGN_IN_URL);
-        headerPage.fillInEmailAndClickSignInBtn(REGISTERED_EMAIL_ADDRESS, FIELD_PASSWORD);
+        signInPage.openPage(SIGN_IN_URL);
+        signInPage.fillInEmailAndClickSignInBtn(REGISTERED_EMAIL_ADDRESS, FIELD_PASSWORD);
         headerPage.waitForMyAccountPageOpened();
         headerPage.clickSignOutBtnOnMyAccPage();
         Assert.assertTrue(myAccountPage.isSignInHeaderButtonShown());

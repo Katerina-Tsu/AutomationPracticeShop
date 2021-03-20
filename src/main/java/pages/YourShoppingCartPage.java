@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class YourShoppingCartPage extends HeaderPage {
 
-    @FindBy(xpath = "//*[@id='email']")
-    WebElement emailFieldSignIn;
+//    @FindBy(xpath = "//*[@id='email']")
+//    WebElement emailFieldSignIn;
 
-    @FindBy(xpath = "//*[@id='passwd']")
-    WebElement passwordFieldSignIn;
+//    @FindBy(xpath = "//*[@id='passwd']")
+//    WebElement passwordFieldSignIn;
 
-    @FindBy(xpath = "//*[@id='SubmitLogin']")
-    WebElement signInButton;
+//    @FindBy(xpath = "//*[@id='SubmitLogin']")
+//    WebElement signInButton;
 
     @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
     WebElement addToCartButton;
@@ -50,30 +50,30 @@ public class YourShoppingCartPage extends HeaderPage {
     @FindBy(xpath = "//*[@class='cheque-indent']//ancestor::*[contains(text(),'Your order on My Store is complete.')]")
     WebElement orderIsCompleteText;
 
-    @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'My account')]")
-    WebElement myAccountPageLabel;
+//    @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'My account')]")
+//    WebElement myAccountPageLabel;
 
-    String productNameOnPageText = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
+//    private static final String PRODUCT_NAME_ON_PAGE_TEXT = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
 
-    String trashButton = "//*[@class='cart_quantity_delete']";
+    private static final String TRASH_BUTTON = "//*[@class='cart_quantity_delete']";
 
-    String quantityProductsOnCartPage = "//*[@class='cart_quantity_input form-control grey']";
+    private static final String QUANTITY_PRODUCTS_ON_CART_PAGE = "//*[@class='cart_quantity_input form-control grey']";
 
-    String totalPriceSomeItemsProduct = "//*[@class='cart_total']";
+    private static final String TOTAL_PRICE_SOME_ITEMS_PRODUCT = "//*[@class='cart_total']";
 
     public YourShoppingCartPage(WebDriver driver) {
         super(driver);
     }
 
-    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
-        emailFieldSignIn.sendKeys(emailAddress);
-        passwordFieldSignIn.sendKeys(password);
-        signInButton.click();
-    }
+//    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
+//        emailFieldSignIn.sendKeys(emailAddress);
+//        passwordFieldSignIn.sendKeys(password);
+//        signInButton.click();
+//    }
 
-    public void findProductNameOnPage(String productNameItem) {
-        driver.findElement(By.xpath(String.format(productNameOnPageText, productNameItem))).click();
-    }
+//    public void findProductNameOnPage(String productNameItem) {
+//        driver.findElement(By.xpath(String.format(PRODUCT_NAME_ON_PAGE_TEXT, productNameItem))).click();
+//    }
 
     public void increaseProductsQuantity() {
         increaseTheQuantityProductsButton.click();
@@ -89,7 +89,7 @@ public class YourShoppingCartPage extends HeaderPage {
         proceedToCheckoutButton.click();
     }
 
-    public void goToNextPage() {
+    public void goToNextPageProceedToCheckoutButton() {
         proceedToCheckoutOnShoppingCartSummaryButton.click();
     }
 
@@ -102,7 +102,7 @@ public class YourShoppingCartPage extends HeaderPage {
     }
 
     public void clickTrashButton(String productNameItem) {
-        driver.findElement(By.xpath(String.format(trashButton, productNameItem))).click();
+        driver.findElement(By.xpath(String.format(TRASH_BUTTON, productNameItem))).click();
     }
 
     public void clickPaymentBtn() {
@@ -110,11 +110,11 @@ public class YourShoppingCartPage extends HeaderPage {
     }
 
     public String getProductsQuantityOnMyCartPage(String productNameItem) {
-        return driver.findElement(By.xpath(String.format(quantityProductsOnCartPage, productNameItem))).getAttribute("value");
+        return driver.findElement(By.xpath(String.format(QUANTITY_PRODUCTS_ON_CART_PAGE, productNameItem))).getAttribute("value");
     }
 
     public String getTotalPriceProducts(String productNameItem) {
-        return driver.findElement(By.xpath(String.format(totalPriceSomeItemsProduct, productNameItem))).getText();
+        return driver.findElement(By.xpath(String.format(TOTAL_PRICE_SOME_ITEMS_PRODUCT, productNameItem))).getText();
     }
 
     public String getShoppingCartIsEmptyText() {
@@ -125,9 +125,9 @@ public class YourShoppingCartPage extends HeaderPage {
         return shoppingCartIsEmptyHeaderText.getText();
     }
 
-    public void waitForMyAccountPageOpened() {
-        wait.until(ExpectedConditions.visibilityOf(myAccountPageLabel));
-    }
+//    public void waitForMyAccountPageOpened() {
+//        wait.until(ExpectedConditions.visibilityOf(myAccountPageLabel));
+//    }
 
     public void waitForMyCartPageIsOpened() {
         wait.until(ExpectedConditions.visibilityOf(myCartPageWithProductsLabel));

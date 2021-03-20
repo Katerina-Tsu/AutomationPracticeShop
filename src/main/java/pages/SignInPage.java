@@ -31,9 +31,19 @@ public class SignInPage extends HeaderPage {
         super(driver);
     }
 
+//    public void openPage(String url) {
+//        super.openPage(SIGN_IN_URL);
+//    }
+
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();
+    }
+
+    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
+        emailFieldSignIn.sendKeys(emailAddress);
+        passwordFieldSignIn.sendKeys(password);
+        signInButton.click();
     }
 
     public boolean isPageOpened() {
@@ -42,9 +52,5 @@ public class SignInPage extends HeaderPage {
 
     public String getEmailAddressText() {
         return errorWrongEmailAddressInField.getText();
-    }
-
-    public void openPage(String url) {
-        super.openPage(SIGN_IN_URL);
     }
 }

@@ -23,7 +23,7 @@ public class MainProductsPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
     WebElement addToCartButton;
 
-    String productNameOnMainPageText = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
+    private static final String PRODUCT_NAME_ON_MAIN_PAGE_TEXT = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";
 
     public MainProductsPage(WebDriver driver) {
         super(driver);
@@ -33,8 +33,8 @@ public class MainProductsPage extends HeaderPage {
         wait.until(ExpectedConditions.visibilityOf(cartStorePageLabel));
     }
 
-    public void findProductNameOnMainPage(String productNameItem) {
-        driver.findElement(By.xpath(String.format(productNameOnMainPageText, productNameItem))).click();
+    public void findProductNameOnPage(String productNameItem) {
+        driver.findElement(By.xpath(String.format(PRODUCT_NAME_ON_MAIN_PAGE_TEXT, productNameItem))).click();
     }
 
     public void clickAddToCartButton() {
