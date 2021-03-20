@@ -15,6 +15,7 @@ public class BasePage implements CommonConstants {
         PageFactory.initElements(driver, this);
     }
 
+//  @Step("Open the required page with '{url}'")
     public void openPage(String url) {
         driver.get(url);
     }

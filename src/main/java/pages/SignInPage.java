@@ -31,11 +31,13 @@ public class SignInPage extends HeaderPage {
         super(driver);
     }
 
+//  @Step("Create a customer account with email: '{emailAddress}'")
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();
     }
 
+//    @Step("Sign In in customer account with email: '{emailAddress}' and password: '{password}'")
     public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
         emailFieldSignIn.sendKeys(emailAddress);
         passwordFieldSignIn.sendKeys(password);

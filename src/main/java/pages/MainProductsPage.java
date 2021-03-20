@@ -33,6 +33,7 @@ public class MainProductsPage extends HeaderPage {
         wait.until(ExpectedConditions.visibilityOf(cartStorePageLabel));
     }
 
+//  @Step("Searches for a product name and selects it with product name: '{productNameItem}'")
     public void findProductNameOnPage(String productNameItem) {
         driver.findElement(By.xpath(String.format(PRODUCT_NAME_ON_MAIN_PAGE_TEXT, productNameItem))).click();
     }

@@ -60,6 +60,7 @@ public class YourShoppingCartPage extends HeaderPage {
         super(driver);
     }
 
+//  @Step("Increasing a number of products")
     public void increaseProductsQuantity() {
         increaseTheQuantityProductsButton.click();
         addToCartButton.click();
@@ -86,6 +87,7 @@ public class YourShoppingCartPage extends HeaderPage {
         addToCartButton.click();
     }
 
+//  @Step("Deleting a product from the cart with product name: '{productNameItem}'")
     public void clickTrashButton(String productNameItem) {
         driver.findElement(By.xpath(String.format(TRASH_BUTTON, productNameItem))).click();
     }
@@ -94,10 +96,12 @@ public class YourShoppingCartPage extends HeaderPage {
         paymentEndBtnIConf.click();
     }
 
+//  @Step("Show the number of products in the cart with product name: '{productNameItem}'")
     public String getProductsQuantityOnMyCartPage(String productNameItem) {
         return driver.findElement(By.xpath(String.format(QUANTITY_PRODUCTS_ON_CART_PAGE, productNameItem))).getAttribute("value");
     }
 
+//  @Step("Show the total price of product in the cart with product name: '{productNameItem}'")
     public String getTotalPriceProducts(String productNameItem) {
         return driver.findElement(By.xpath(String.format(TOTAL_PRICE_SOME_ITEMS_PRODUCT, productNameItem))).getText();
     }
