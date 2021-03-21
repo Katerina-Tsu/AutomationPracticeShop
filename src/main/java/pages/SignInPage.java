@@ -31,6 +31,10 @@ public class SignInPage extends HeaderPage {
         super(driver);
     }
 
+    public void openSignInPage() {
+        driver.get(SIGN_IN_URL);
+    }
+
 //  @Step("Create a customer account with email: '{emailAddress}'")
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);

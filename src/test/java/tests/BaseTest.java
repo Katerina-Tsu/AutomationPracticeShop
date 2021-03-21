@@ -19,7 +19,14 @@ public class BaseTest implements TestConstants {
     CreateAnAccountPage createAnAccountPage;
     MyAccountPage myAccountPage;
     MainProductsPage mainProductsPage;
-    YourShoppingCartPage yourShoppingCartPage;
+    ProductDetailsPage productDetailsPage;
+    ProductDetailsModal productDetailsModal;
+    YourShoppingCartSummaryPage yourShoppingCartSummaryPage;
+    YourShoppingCartSignInPage yourShoppingCartSignInPage;
+    YourShoppingCartAddressPage yourShoppingCartAddressPage;
+    YourShoppingCartShippingPage yourShoppingCartShippingPage;
+    YourShoppingCartPaymentPage yourShoppingCartPaymentPage;
+    OrderConfirmationPaymentPage orderConfirmationPaymentPage;
     HeaderPage headerPage;
 
     @BeforeMethod
@@ -42,7 +49,14 @@ public class BaseTest implements TestConstants {
         createAnAccountPage = new CreateAnAccountPage(driver);
         myAccountPage = new MyAccountPage(driver);
         mainProductsPage = new MainProductsPage(driver);
-        yourShoppingCartPage = new YourShoppingCartPage(driver);
+        productDetailsPage = new ProductDetailsPage(driver);
+        productDetailsModal = new ProductDetailsModal(driver);
+        yourShoppingCartSummaryPage = new YourShoppingCartSummaryPage(driver);
+        yourShoppingCartSignInPage = new YourShoppingCartSignInPage(driver);
+        yourShoppingCartAddressPage = new YourShoppingCartAddressPage(driver);
+        yourShoppingCartShippingPage = new YourShoppingCartShippingPage(driver);
+        yourShoppingCartPaymentPage = new YourShoppingCartPaymentPage(driver);
+        orderConfirmationPaymentPage = new OrderConfirmationPaymentPage(driver);
         headerPage = new HeaderPage(driver);
     }
 }

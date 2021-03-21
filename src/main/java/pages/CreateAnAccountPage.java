@@ -56,9 +56,6 @@ public class CreateAnAccountPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='alias']")
     WebElement assignAddressField;
 
-    @FindBy(xpath = "//*[@id='my-account']")
-    WebElement myAccountTab;
-
     @FindBy(xpath = "//*[@id='alias']")
     WebElement textInFieldAssignAnAddress;
 
@@ -113,9 +110,5 @@ public class CreateAnAccountPage extends HeaderPage {
 
     public void chooseCountry(String country) {
         driver.findElement(By.xpath(String.format(countryField, country))).click();
-    }
-
-    public boolean isMainStorePageOpened() {
-        return myAccountTab.isDisplayed();
     }
 }

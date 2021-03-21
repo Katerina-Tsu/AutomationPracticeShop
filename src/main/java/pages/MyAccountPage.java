@@ -13,7 +13,14 @@ public class MyAccountPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'My account')]")
     WebElement myAccountPageLabel;
 
+    @FindBy(xpath = "//*[@class='navigation_page']//ancestor::*[contains(text(),'My account')]")
+    WebElement myAccountTab;
+
     public void waitForMyAccountPageOpened() {
         wait.until(ExpectedConditions.visibilityOf(myAccountPageLabel));
+    }
+
+    public boolean isMyAccountPagePageOpened() {
+        return myAccountTab.isDisplayed();
     }
 }

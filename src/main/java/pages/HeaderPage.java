@@ -17,20 +17,21 @@ public class HeaderPage extends BasePage {
     @FindBy(xpath = "//*[@class='page-heading']")
     WebElement myAccountTextLabel;
 
-    private static final String MENU_WOMEN_LINK = "//*[@class='sf-with-ul']//ancestor::*[contains(text(),'%s')]";
+    @FindBy(xpath = "//*[@class='ajax_cart_no_product']")
+    WebElement shoppingCartIsEmptyHeaderText;
 
-    private static final String PRODUCT_NAME = "//*[@class='product-name']//self::*[contains(text(),'%s')]";
+    private static final String MENU_WOMEN_LINK = "//*[@class='sf-with-ul']//ancestor::*[contains(text(),'%s')]";
 
     public HeaderPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickMenuHeaderLink(String tabHeader) {
-        driver.findElement(By.xpath(String.format(MENU_WOMEN_LINK, tabHeader))).click();
+    public void openHeaderPage() {
+        driver.get(AUTOMATION_PRACTICE_SHOP_URL);
     }
 
-    public void clickProductName(String productNameItem) {
-        driver.findElement(By.xpath(String.format(PRODUCT_NAME, productNameItem))).click();
+    public void clickMenuHeaderLink(String tabHeader) {
+        driver.findElement(By.xpath(String.format(MENU_WOMEN_LINK, tabHeader))).click();
     }
 
     public void clickSignOutBtnOnMyAccPage() {
@@ -43,5 +44,9 @@ public class HeaderPage extends BasePage {
 
     public void waitForMyAccountPageOpened() {
         wait.until(ExpectedConditions.visibilityOf(myAccountTextLabel));
+    }
+
+    public String getShoppingCartIsEmptyHeaderText() {
+        return shoppingCartIsEmptyHeaderText.getText();
     }
 }
