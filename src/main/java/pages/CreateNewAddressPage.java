@@ -44,11 +44,15 @@ public class CreateNewAddressPage extends BasePage {
 
     String stateField = "//*[@id='id_state']//ancestor::*[contains(text(),'%s')]";
 
-    String countryField = "//*[@id='id_country']//ancestor::*[contains(text(),'%s')]";
+    @FindBy(xpath =  "//*[@id='submitAddress']/span")
+    WebElement saveButton;
+
+    private static final String NAME_NEW_ADDRESS_XPATH = "//*[@id='center_column']//ancestor::*[contains(text(),'%s')]";
 
     @Override
     void waitForPageOpened() {
     }
+
     public void isAddressesAdded() {
         addressesButton.click();
     }
@@ -57,7 +61,9 @@ public class CreateNewAddressPage extends BasePage {
         addAnAddressButton.click();
     }
 
-
+    public void chooseState(String state) {
+        driver.findElement(By.xpath(String.format(stateField, state))).click();
+    }
 
     public void inputTextInFieldsFormRegNewAddress(String firstName, String lastName, String newAddress,
                                                     String newCity, String newPostcode,
@@ -73,8 +79,10 @@ public class CreateNewAddressPage extends BasePage {
 
     }
 
-    public void chooseState(String state) {
-        driver.findElement(By.xpath(String.format(stateField, state))).click();
+    public void isSaveButton() {
+        saveButton.click();
     }
-
+    public boolean isNameNewAddress(String headerText) {
+        return driver.findElement(By.xpath(String.format(NAME_NEW_ADDRESS_XPATH, headerText))).isDisplayed();
+    }
 }

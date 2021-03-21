@@ -50,13 +50,4 @@ public class SignInTests extends BaseTest {
         Assert.assertTrue(signInPage.isSignedInUsernameDisplayed ());
     }
 
-//    @Test(groups = "Sasha", description = "In My Account. Add a new address shipping")
-//    public void addNewAddressTest() {
-//        signInPage.openPage(SIGN_IN_URL);
-//        signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-//        createAnAccountPage.isAddressesAdded(NEW_ADDRESS_DELIVERY);
-//        createAnAccountPage.
-//        Assert.assertTrue(signInPage.isSignedInUsernameDisplayed ());
-//    }
-
 }

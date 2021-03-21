@@ -73,6 +73,4 @@ public class SignInPage extends BasePage {
     }
     public boolean isSignedInUsernameDisplayed () { return signInButton.isDisplayed(); }
 
-
-
 }

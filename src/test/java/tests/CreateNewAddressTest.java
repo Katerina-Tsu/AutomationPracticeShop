@@ -10,10 +10,11 @@ public class CreateNewAddressTest extends BaseTest {
     @Test(groups = "Sasha", description = "In My Account. Add a new address shipping")
     public void createNewAddressTest(String firstName, String lastName, String newAddress,
                                      String newCity, String newPostcode,
-                                     String newHomePhone, String newMobilePhone, String addressTitleField) {
+                                     String newHomePhone, String newMobilePhone, String addressTitleField, String state) {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         createNewAddressPage.isAddressesAdded();
+        createNewAddressPage.addAnAddress();
         createNewAddressPage.inputTextInFieldsFormRegNewAddress(firstName,
                 lastName,
                 newAddress,
@@ -24,7 +25,7 @@ public class CreateNewAddressTest extends BaseTest {
                 addressTitleField
         );
         createNewAddressPage.chooseState(state);
-        createNewAddressPage.clickSaveButton();
-        Assert.assertTrue(createAnAccountPage.isMainStorePageOpened());
+        createNewAddressPage.isSaveButton();
+        Assert.assertTrue(createNewAddressPage.isNameNewAddress("MY ADDRESS 2"));
     }
 }
