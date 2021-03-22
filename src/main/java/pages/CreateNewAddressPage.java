@@ -16,8 +16,6 @@ public class CreateNewAddressPage extends BasePage {
     @FindBy(xpath = "//*[@title='Add an address']")
     WebElement addAnAddressButton;
 
-
-
     @FindBy(xpath = "//*[@id='firstname']")
     WebElement firstNameField;
 
@@ -42,7 +40,8 @@ public class CreateNewAddressPage extends BasePage {
     @FindBy(xpath = "//*[@id='alias']")
     WebElement newAddressTitleField;
 
-    String stateField = "//*[@id='id_state']//ancestor::*[contains(text(),'%s')]";
+    @FindBy(xpath = "//*[@id='id_state']//ancestor::*[contains(text(),'Alabama')]")
+    WebElement fieldState;
 
     @FindBy(xpath =  "//*[@id='submitAddress']/span")
     WebElement saveButton;
@@ -61,10 +60,6 @@ public class CreateNewAddressPage extends BasePage {
         addAnAddressButton.click();
     }
 
-    public void chooseState(String state) {
-        driver.findElement(By.xpath(String.format(stateField, state))).click();
-    }
-
     public void inputTextInFieldsFormRegNewAddress(String firstName, String lastName, String newAddress,
                                                     String newCity, String newPostcode,
                                                     String newHomePhone, String newMobilePhone, String addressTitleField) {
@@ -72,6 +67,7 @@ public class CreateNewAddressPage extends BasePage {
         lastNameField.sendKeys(lastName);
         newAddressField.sendKeys(newAddress);
         newCityField.sendKeys(newCity);
+        fieldState.click();
         newPostcodeField.sendKeys(newPostcode);
         newHomePhoneField.sendKeys(newHomePhone);
         newMobilePhoneField.sendKeys(newMobilePhone);
