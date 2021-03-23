@@ -53,6 +53,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - katia_5
     jobs:
       - ui-tests
