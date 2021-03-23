@@ -1,0 +1,35 @@
+Index: src/test/java/tests/CreateAnAccountTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests;\r\n\r\nimport org.testng.Assert;\r\nimport org.testng.annotations.Test;\r\n\r\nimport static constants.CommonConstants.SIGN_IN;\r\n\r\npublic class CreateAnAccountTests extends BaseTest{\r\n\r\n    @Test(groups = \"Katia\")\r\n    public void firstnameFieldIsEmptyTest() {\r\n        createAnAccountPage.openPage(SIGN_IN);\r\n        createAnAccountPage.login(EMAIL_ADDRESS);\r\n        createAnAccountPage.inputTextInFormFirstName(EMPTY_FIELD_FIRST_NAME);\r\n        Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);\r\n    }\r\n\r\n    @Test(groups = \"Katia\")\r\n    public void longPasswordTest() {\r\n        createAnAccountPage.openPage(SIGN_IN);\r\n        createAnAccountPage.login(EMAIL_ADDRESS);\r\n        createAnAccountPage.inputLongPswrdInField(LONG_PASSWORD);\r\n        Assert.assertEquals(createAnAccountPage.inputLongPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/tests/CreateAnAccountTests.java b/src/test/java/tests/CreateAnAccountTests.java
+--- a/src/test/java/tests/CreateAnAccountTests.java	
++++ b/src/test/java/tests/CreateAnAccountTests.java	
+@@ -3,13 +3,13 @@
+ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ 
+-import static constants.CommonConstants.SIGN_IN;
++import static constants.CommonConstants.SIGN_IN_URL;
+ 
+ public class CreateAnAccountTests extends BaseTest{
+ 
+     @Test(groups = "Katia")
+     public void firstnameFieldIsEmptyTest() {
+-        createAnAccountPage.openPage(SIGN_IN);
++        createAnAccountPage.openPage(SIGN_IN_URL);
+         createAnAccountPage.login(EMAIL_ADDRESS);
+         createAnAccountPage.inputTextInFormFirstName(EMPTY_FIELD_FIRST_NAME);
+         Assert.assertEquals(createAnAccountPage.getEmptyFirstnameText(), EXPECTED_RESULT_EMPTY_FIELD_FIRSTNAME);
+@@ -17,7 +17,7 @@
+ 
+     @Test(groups = "Katia")
+     public void longPasswordTest() {
+-        createAnAccountPage.openPage(SIGN_IN);
++        createAnAccountPage.openPage(SIGN_IN_URL);
+         createAnAccountPage.login(EMAIL_ADDRESS);
+         createAnAccountPage.inputLongPswrdInField(LONG_PASSWORD);
+         Assert.assertEquals(createAnAccountPage.inputLongPswrdInField(), EXPECTED_RESULT_NOT_LONG_PASSWORD);

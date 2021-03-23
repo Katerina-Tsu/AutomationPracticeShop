@@ -1,0 +1,29 @@
+Index: src/test/java/tests/BaseTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests;\r\n\r\nimport io.github.bonigarcia.wdm.WebDriverManager;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.chrome.ChromeOptions;\r\nimport org.testng.annotations.AfterMethod;\r\nimport org.testng.annotations.BeforeMethod;\r\nimport pages.CreateAnAccountPage;\r\nimport pages.SignInPage;\r\nimport test_data.TestConstants;\r\n\r\nimport java.util.concurrent.TimeUnit;\r\n\r\npublic class BaseTest implements TestConstants {\r\n    WebDriver driver;\r\n    SignInPage signInPage;\r\n    CreateAnAccountPage createAnAccountPage;\r\n\r\n    @BeforeMethod\r\n    public void initTest() {\r\n        WebDriverManager.chromedriver().setup();\r\n        ChromeOptions chromeOptions = new ChromeOptions();\r\n        driver = new ChromeDriver(chromeOptions);\r\n        driver.manage().window().maximize();\r\n        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);\r\n        signInPage = new SignInPage(driver);\r\n        createAnAccountPage = new CreateAnAccountPage(driver);\r\n    }\r\n\r\n    @AfterMethod(alwaysRun = true)\r\n    public void endTest() { driver.quit();}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/tests/BaseTest.java b/src/test/java/tests/BaseTest.java
+--- a/src/test/java/tests/BaseTest.java	
++++ b/src/test/java/tests/BaseTest.java	
+@@ -24,10 +24,15 @@
+         driver = new ChromeDriver(chromeOptions);
+         driver.manage().window().maximize();
+         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
++    }
++
++    @AfterMethod(alwaysRun = true)
++    public void endTest() {
++        driver.quit();
++    }
++
++    public void initPage() {
+         signInPage = new SignInPage(driver);
+         createAnAccountPage = new CreateAnAccountPage(driver);
+     }
+-
+-    @AfterMethod(alwaysRun = true)
+-    public void endTest() { driver.quit();}
+ }
