@@ -71,6 +71,6 @@ public class SignInPage extends BasePage {
     public boolean isHeaderLabelDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(SIGNED_IN_USERNAME_LABEL_XPATH, headerText))).isDisplayed();
     }
-    public boolean isSignedInUsernameDisplayed () { return signInButton.isDisplayed(); }
+    public boolean isSignInButtonDisplayed () { return signInButton.isDisplayed(); }
 
 }

@@ -11,8 +11,8 @@ public class CreateNewAddressTest extends BaseTest {
     public void createNewAddressTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        createNewAddressPage.isAddressesAdded();
-        createNewAddressPage.addAnAddress();
+        createNewAddressPage.AddressesAdded();
+        createNewAddressPage.clickOnAddAnAddressButton();
         createNewAddressPage.inputTextInFieldsFormRegNewAddress(FIELD_NEW_YOUR_FIRSTNAME,
                 FIELD_NEW_YOUR_LASTNAME,
                 FIELD_NEW_ADDRESS,
@@ -20,9 +20,10 @@ public class CreateNewAddressTest extends BaseTest {
                 FIELD_NEW_ZIPCODE,
                 FIELD_NEW_HOME_PHONE,
                 FIELD_NEW_MOB_PHONE,
-                FIELD_NEW_NAME_ADDRESS
+                FIELD_NEW_NAME_ADDRESS,
+                "Alabama"
         );
-        createNewAddressPage.isSaveButton();
-        Assert.assertTrue(createNewAddressPage.isNameNewAddress("MY ADDRESS 2"));
+        createNewAddressPage.clickSaveButton();
+        Assert.assertTrue(createNewAddressPage.isNewAddressNameDisplayed(FIELD_NEW_NAME_ADDRESS));
     }
 }

@@ -18,6 +18,6 @@ public interface TestConstants {
     String FIELD_NEW_YOUR_FIRSTNAME = "Anton";
     String FIELD_NEW_YOUR_LASTNAME = "Filatov";
     String FIELD_NEW_NAME_ADDRESS = "My address 2";
-    String CORRECT_ITEMS_FOUND = "Dress";
+    String DRESS_ITEM = "Dress";
     String CORRECT_ITEMS_FOUND_RESALT = "7 results have been found.";
 }

@@ -40,34 +40,33 @@ public class CreateNewAddressPage extends BasePage {
     @FindBy(xpath = "//*[@id='alias']")
     WebElement newAddressTitleField;
 
-    @FindBy(xpath = "//*[@id='id_state']//ancestor::*[contains(text(),'Alabama')]")
-    WebElement fieldState;
-
     @FindBy(xpath =  "//*[@id='submitAddress']/span")
     WebElement saveButton;
 
-    private static final String NAME_NEW_ADDRESS_XPATH = "//*[@id='center_column']//ancestor::*[contains(text(),'%s')]";
+    private static final String NEW_ADDRESS_NAME_XPATH = "//*[@id='center_column']//ancestor::*[contains(text(),'%s')]";
+
+    private static final String STATE_FIELD_XPATH = "//*[@id='id_state']//ancestor::*[contains(text(),'%s')]";
 
     @Override
     void waitForPageOpened() {
     }
 
-    public void isAddressesAdded() {
+    public void AddressesAdded() {
         addressesButton.click();
     }
 
-    public void addAnAddress() {
+    public void clickOnAddAnAddressButton() {
         addAnAddressButton.click();
     }
 
     public void inputTextInFieldsFormRegNewAddress(String firstName, String lastName, String newAddress,
                                                     String newCity, String newPostcode,
-                                                    String newHomePhone, String newMobilePhone, String addressTitleField) {
+                                                    String newHomePhone, String newMobilePhone, String addressTitleField, String stateName) {
         firstNameField.sendKeys(firstName);
         lastNameField.sendKeys(lastName);
         newAddressField.sendKeys(newAddress);
         newCityField.sendKeys(newCity);
-        fieldState.click();
+        driver.findElement(By.xpath(String.format(STATE_FIELD_XPATH,stateName))).click();
         newPostcodeField.sendKeys(newPostcode);
         newHomePhoneField.sendKeys(newHomePhone);
         newMobilePhoneField.sendKeys(newMobilePhone);
@@ -75,10 +74,10 @@ public class CreateNewAddressPage extends BasePage {
 
     }
 
-    public void isSaveButton() {
+    public void clickSaveButton() {
         saveButton.click();
     }
-    public boolean isNameNewAddress(String headerText) {
-        return driver.findElement(By.xpath(String.format(NAME_NEW_ADDRESS_XPATH, headerText))).isDisplayed();
+    public boolean isNewAddressNameDisplayed(String headerText) {
+        return driver.findElement(By.xpath(String.format(NEW_ADDRESS_NAME_XPATH, headerText))).isDisplayed();
     }
 }

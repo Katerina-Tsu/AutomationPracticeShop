@@ -9,6 +9,9 @@ public class HeaderPage extends BasePage{
         super(driver);
     }
 
+    @FindBy(xpath = "//*[@id='block_top_menu']/ul/li[1]/a")
+    WebElement womenCategoryButton;
+
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(), 'Sign out')]")
     WebElement signOutButton ;
 
@@ -17,6 +20,10 @@ public class HeaderPage extends BasePage{
 
     public void clickSignOutProfile() {
         signOutButton.click();
+    }
+
+    public void clickOnWomenCategoryButton() {
+        womenCategoryButton.click();
     }
 
 }

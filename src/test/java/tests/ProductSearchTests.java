@@ -11,7 +11,7 @@ public class ProductSearchTests extends BaseTest{
     public void wrongEmailFieldSignInTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        productSearchPage.inputInSearchField(CORRECT_ITEMS_FOUND);
-        Assert.assertEquals(productSearchPage.getCorrectTextSearch(), CORRECT_ITEMS_FOUND_RESALT);
+        productSearchPage.inputInSearchField(DRESS_ITEM);
+        Assert.assertEquals(productSearchPage.getSearchText(), CORRECT_ITEMS_FOUND_RESALT);
     }
 }

@@ -27,7 +27,7 @@ public class ProductSearchPage extends BasePage {
         searchActivation.click();
     }
 
-    public String getCorrectTextSearch() {
+    public String getSearchText() {
         return searchCorrectResult.getText();
     }
 }

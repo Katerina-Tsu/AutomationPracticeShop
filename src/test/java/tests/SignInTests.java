@@ -47,7 +47,7 @@ public class SignInTests extends BaseTest {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         headerPage.clickSignOutProfile();
-        Assert.assertTrue(signInPage.isSignedInUsernameDisplayed ());
+        Assert.assertTrue(signInPage.isSignInButtonDisplayed ());
     }
 
 }
