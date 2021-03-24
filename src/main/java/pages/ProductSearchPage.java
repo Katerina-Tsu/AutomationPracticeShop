@@ -18,6 +18,9 @@ public class ProductSearchPage extends BasePage {
     @FindBy(xpath = "//*[@class='heading-counter']//ancestor::*[contains(text(),'7 results have been found.')]")
     WebElement searchCorrectResult;
 
+    @FindBy(xpath = "//*[@id='center_column']/h1/span[2]")
+    WebElement searchCorrectResultTshirts;
+
     @Override
     void waitForPageOpened() {
     }
@@ -29,5 +32,9 @@ public class ProductSearchPage extends BasePage {
 
     public String getSearchText() {
         return searchCorrectResult.getText();
+    }
+
+    public String getSearchTextTshirts() {
+        return searchCorrectResultTshirts.getText();
     }
 }

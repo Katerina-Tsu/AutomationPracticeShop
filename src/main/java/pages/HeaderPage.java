@@ -15,6 +15,9 @@ public class HeaderPage extends BasePage{
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(), 'Sign out')]")
     WebElement signOutButton ;
 
+    @FindBy(xpath = "//*[@id='block_top_menu']/ul/li[3]/a")
+    WebElement tshirtsCategoryButton;
+
     void waitForPageOpened() {
     }
 
@@ -25,5 +28,7 @@ public class HeaderPage extends BasePage{
     public void clickOnWomenCategoryButton() {
         womenCategoryButton.click();
     }
+
+    public void clickOnTshirtdCategoryButton() {tshirtsCategoryButton.click();}
 
 }

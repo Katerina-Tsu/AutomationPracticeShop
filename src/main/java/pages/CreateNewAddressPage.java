@@ -43,6 +43,9 @@ public class CreateNewAddressPage extends BasePage {
     @FindBy(xpath =  "//*[@id='submitAddress']/span")
     WebElement saveButton;
 
+    @FindBy(xpath = "//*[@id='center_column']/div/div/ol/li")
+    WebElement incorrectFieldText;
+
     private static final String NEW_ADDRESS_NAME_XPATH = "//*[@id='center_column']//ancestor::*[contains(text(),'%s')]";
 
     private static final String STATE_FIELD_XPATH = "//*[@id='id_state']//ancestor::*[contains(text(),'%s')]";
@@ -74,10 +77,28 @@ public class CreateNewAddressPage extends BasePage {
 
     }
 
+    public void inputTextInFieldsFormRegNewAddressIncorrect(String firstName, String lastName,
+                                                   String newCity, String newPostcode,
+                                                   String newHomePhone, String newMobilePhone, String addressTitleField, String stateName) {
+        firstNameField.sendKeys(firstName);
+        lastNameField.sendKeys(lastName);
+        newCityField.sendKeys(newCity);
+        driver.findElement(By.xpath(String.format(STATE_FIELD_XPATH,stateName))).click();
+        newPostcodeField.sendKeys(newPostcode);
+        newHomePhoneField.sendKeys(newHomePhone);
+        newMobilePhoneField.sendKeys(newMobilePhone);
+        newAddressTitleField.sendKeys(addressTitleField);
+
+    }
+
     public void clickSaveButton() {
         saveButton.click();
     }
     public boolean isNewAddressNameDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(NEW_ADDRESS_NAME_XPATH, headerText))).isDisplayed();
+    }
+
+    public String getSearchTextIncorrectDataField() {
+        return incorrectFieldText.getText();
     }
 }

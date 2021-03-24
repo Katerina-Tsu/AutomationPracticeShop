@@ -26,4 +26,24 @@ public class CreateNewAddressTest extends BaseTest {
         createNewAddressPage.clickSaveButton();
         Assert.assertTrue(createNewAddressPage.isNewAddressNameDisplayed(FIELD_NEW_NAME_ADDRESS));
     }
+
+    @Test(groups = "Sasha", description = "In My Account. Add a new address shipping negative test")
+    public void createNewAddressNegativeTest() {
+        signInPage.openPage(SIGN_IN_URL);
+        signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
+        createNewAddressPage.AddressesAdded();
+        createNewAddressPage.clickOnAddAnAddressButton();
+        createNewAddressPage.inputTextInFieldsFormRegNewAddressIncorrect(FIELD_NEW_YOUR_FIRSTNAME,
+                FIELD_NEW_YOUR_LASTNAME,
+                FIELD_NEW_NAME_CITY,
+                FIELD_NEW_ZIPCODE,
+                FIELD_NEW_HOME_PHONE,
+                FIELD_NEW_MOB_PHONE,
+                FIELD_NEW_NAME_ADDRESS,
+                "Alabama"
+        );
+        createNewAddressPage.clickSaveButton();
+        Assert.assertEquals(createNewAddressPage.getSearchTextIncorrectDataField(), FIELD_WITH_INCORRECT_DATA);
+    }
+
 }

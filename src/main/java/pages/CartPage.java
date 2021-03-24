@@ -12,7 +12,8 @@ public class CartPage extends BasePage {
 
     private static final String PRODUCT_TITLE_XPATH = "//*[@title = '%s']";
 
-    @FindBy(xpath = "//*[@class='exclusive']")
+
+    @FindBy(xpath = "//*[@id='add_to_cart']/button")
     WebElement addToCart;
 
     @FindBy(xpath = "//*[@id='layer_cart']/div[1]/div[2]/div[4]/span/span")
@@ -22,6 +23,7 @@ public class CartPage extends BasePage {
     WebElement goOverToCart;
 
     private static final String SIGNED_IN_DESCRIPTION_LABEL_XPATH = "//*[@class='cart_description']//ancestor::*[contains(text(),'%s')]";
+
     @Override
     void waitForPageOpened() {
     }
@@ -31,13 +33,19 @@ public class CartPage extends BasePage {
     }
 
     public void clickAddToCart() {
-        addToCart.click();
+//        addToCart.click();
         continueShopping.click();
         goOverToCart.click();
     }
 
     public boolean isProductDescription(String headerText) {
         return driver.findElement(By.xpath(String.format(SIGNED_IN_DESCRIPTION_LABEL_XPATH, headerText))).isDisplayed();
+    }
+
+    public void iframeAdToCart () {
+        driver.switchTo().frame(driver.findElement(By.className("fancybox-iframe")));
+        addToCart.click();
+        driver.switchTo().defaultContent();
     }
 
 }
