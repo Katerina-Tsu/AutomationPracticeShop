@@ -17,7 +17,11 @@ public interface TestConstants {
     String FIELD_NEW_MOB_PHONE = "+375294527416";
     String FIELD_NEW_YOUR_FIRSTNAME = "Anton";
     String FIELD_NEW_YOUR_LASTNAME = "Filatov";
-    String FIELD_NEW_NAME_ADDRESS = "My address 2";
+    String FIELD_NEW_NAME_ADDRESS = "";
+    String FIELD_NEW_NAME_ADDRESS_CHECK = "My address";
+    String FIELD_WITH_REDACTED_NAME_ADDRESS = " 2";
+    String FIELD_WITH_REDACTED_NAME_ADDRESS_CHECK = "My address 2";
+    String FIELD_NEW_WISHLIST = "My wishlist";
     String DRESS_ITEM = "Dress";
     String CORRECT_ITEMS_FOUND_RESALT = "7 results have been found.";
     String CORRECT_ITEMS_FOUND_RESALT_TSHIRTS = "There is 1 product.";

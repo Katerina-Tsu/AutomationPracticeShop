@@ -24,7 +24,7 @@ public class CreateNewAddressTest extends BaseTest {
                 "Alabama"
         );
         createNewAddressPage.clickSaveButton();
-        Assert.assertTrue(createNewAddressPage.isNewAddressNameDisplayed(FIELD_NEW_NAME_ADDRESS));
+        Assert.assertTrue(createNewAddressPage.isNewAddressNameDisplayed(FIELD_NEW_NAME_ADDRESS_CHECK));
     }
 
     @Test(groups = "Sasha", description = "In My Account. Add a new address shipping negative test")

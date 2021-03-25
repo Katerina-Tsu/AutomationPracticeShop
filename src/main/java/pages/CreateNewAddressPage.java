@@ -74,7 +74,6 @@ public class CreateNewAddressPage extends BasePage {
         newHomePhoneField.sendKeys(newHomePhone);
         newMobilePhoneField.sendKeys(newMobilePhone);
         newAddressTitleField.sendKeys(addressTitleField);
-
     }
 
     public void inputTextInFieldsFormRegNewAddressIncorrect(String firstName, String lastName,
@@ -88,7 +87,6 @@ public class CreateNewAddressPage extends BasePage {
         newHomePhoneField.sendKeys(newHomePhone);
         newMobilePhoneField.sendKeys(newMobilePhone);
         newAddressTitleField.sendKeys(addressTitleField);
-
     }
 
     public void clickSaveButton() {
@@ -100,5 +98,9 @@ public class CreateNewAddressPage extends BasePage {
 
     public String getSearchTextIncorrectDataField() {
         return incorrectFieldText.getText();
+    }
+
+    public void inputNewTextInFieldsFormRegNewAddress(String newAddress) {
+        newAddressTitleField.sendKeys(newAddress);
     }
 }
