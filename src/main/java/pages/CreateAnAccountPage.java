@@ -85,7 +85,7 @@ public class CreateAnAccountPage extends HeaderPage {
         return longZipcodeErrorText.getText();
     }
 
-//  @Step("Inputing data in fields for creating an account")
+//  @Step("Inputting data in fields for creating an account")
     public void inputTextInRequiredFieldsFormAndReg(String yourFirstName, String yourLastName, String password,
                                                     String firstNameCompany, String lastNameCompany,
                                                     String addressCompany, String city, String zipCode,
