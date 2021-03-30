@@ -10,16 +10,16 @@ public class HeaderPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@id='block_top_menu']/ul/li[1]/a")
+    @FindBy(xpath = "//*[@title='Women'][1]")
     WebElement womenCategoryButton;
 
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(), 'Sign out')]")
     WebElement signOutButton ;
 
-    @FindBy(xpath = "//*[@id='block_top_menu']/ul/li[3]/a")
+    @FindBy(xpath = "(//*[@title='T-shirts'])[2]")
     WebElement tshirtsCategoryButton;
 
-    @FindBy (xpath = "//*[@id='center_column']/div[1]/div/div[2]/ul/li[9]/a[1]/span")
+    @FindBy (xpath = "//*[@title='Addresses']")
     WebElement editAddressButton;
 
     @FindBy(xpath = "//*[@title='My wishlists']")
@@ -44,7 +44,7 @@ public class HeaderPage extends BasePage{
         womenCategoryButton.click();
     }
 
-    public void clickOnTshirtdCategoryButton() {tshirtsCategoryButton.click();}
+    public void clickOnTshirtsCategoryButton() {tshirtsCategoryButton.click();}
 
     public void clickOnEditAddressButton() {editAddressButton.click();}
 

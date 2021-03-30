@@ -11,7 +11,7 @@ public class EditShippingAddressesTest extends BaseTest {
     public void EditShippingAddressesTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        createNewAddressPage.AddressesAdded();
+        createNewAddressPage.clickAddressesButton();
         headerPage.clickOnEditAddressButton();
         createNewAddressPage.inputNewTextInFieldsFormRegNewAddress(FIELD_WITH_REDACTED_NAME_ADDRESS);
         createNewAddressPage.clickSaveButton();

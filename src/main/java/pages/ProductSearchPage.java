@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,10 +16,9 @@ public class ProductSearchPage extends BasePage {
     @FindBy(xpath = "//*[@id='searchbox']/button")
     WebElement searchActivation;
 
-    @FindBy(xpath = "//*[@class='heading-counter']//ancestor::*[contains(text(),'7 results have been found.')]")
-    WebElement searchCorrectResult;
+    private static final String SEARCH_CORRECT_RESULT_XPATH = "//*[@class='heading-counter']//ancestor::*[contains(text(),'%s')]";
 
-    @FindBy(xpath = "//*[@id='center_column']/h1/span[2]")
+    @FindBy(xpath = "//*[@class='heading-counter']")
     WebElement searchCorrectResultTshirts;
 
     @Override
@@ -30,8 +30,8 @@ public class ProductSearchPage extends BasePage {
         searchActivation.click();
     }
 
-    public String getSearchText() {
-        return searchCorrectResult.getText();
+    public boolean getSearchText(String headerText) {
+        return driver.findElement(By.xpath(String.format(SEARCH_CORRECT_RESULT_XPATH, headerText))).isDisplayed();
     }
 
     public String getSearchTextTshirts() {

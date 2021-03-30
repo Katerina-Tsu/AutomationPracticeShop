@@ -23,7 +23,7 @@ public interface TestConstants {
     String FIELD_WITH_REDACTED_NAME_ADDRESS_CHECK = "My address 2";
     String FIELD_NEW_WISHLIST = "My wishlist";
     String DRESS_ITEM = "Dress";
-    String CORRECT_ITEMS_FOUND_RESALT = "7 results have been found.";
-    String CORRECT_ITEMS_FOUND_RESALT_TSHIRTS = "There is 1 product.";
+    String CORRECT_ITEMS_FOUND_RESULT = "7 results have been found.";
+    String CORRECT_ITEMS_FOUND_RESULT_CLOTHES = "There is 1 product.";
     String FIELD_WITH_INCORRECT_DATA = "address1 is required.";
 }

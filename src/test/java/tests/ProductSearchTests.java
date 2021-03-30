@@ -2,7 +2,6 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.ProductSearchPage;
 
 import static constants.CommonConstants.SIGN_IN_URL;
 
@@ -12,6 +11,6 @@ public class ProductSearchTests extends BaseTest{
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         productSearchPage.inputInSearchField(DRESS_ITEM);
-        Assert.assertEquals(productSearchPage.getSearchText(), CORRECT_ITEMS_FOUND_RESALT);
+        Assert.assertTrue(productSearchPage.getSearchText(CORRECT_ITEMS_FOUND_RESULT));
     }
 }

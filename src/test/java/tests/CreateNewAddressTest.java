@@ -11,7 +11,7 @@ public class CreateNewAddressTest extends BaseTest {
     public void createNewAddressTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        createNewAddressPage.AddressesAdded();
+        createNewAddressPage.clickAddressesButton();
         createNewAddressPage.clickOnAddAnAddressButton();
         createNewAddressPage.inputTextInFieldsFormRegNewAddress(FIELD_NEW_YOUR_FIRSTNAME,
                 FIELD_NEW_YOUR_LASTNAME,
@@ -31,7 +31,7 @@ public class CreateNewAddressTest extends BaseTest {
     public void createNewAddressNegativeTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        createNewAddressPage.AddressesAdded();
+        createNewAddressPage.clickAddressesButton();
         createNewAddressPage.clickOnAddAnAddressButton();
         createNewAddressPage.inputTextInFieldsFormRegNewAddressIncorrect(FIELD_NEW_YOUR_FIRSTNAME,
                 FIELD_NEW_YOUR_LASTNAME,
@@ -43,7 +43,7 @@ public class CreateNewAddressTest extends BaseTest {
                 "Alabama"
         );
         createNewAddressPage.clickSaveButton();
-        Assert.assertEquals(createNewAddressPage.getSearchTextIncorrectDataField(), FIELD_WITH_INCORRECT_DATA);
+        Assert.assertTrue(createNewAddressPage.getSearchTextIncorrectDataField("address1"));
     }
 
 }

@@ -43,8 +43,7 @@ public class CreateNewAddressPage extends BasePage {
     @FindBy(xpath =  "//*[@id='submitAddress']/span")
     WebElement saveButton;
 
-    @FindBy(xpath = "//*[@id='center_column']/div/div/ol/li")
-    WebElement incorrectFieldText;
+    private static final String INCORRECT_FIELD_TEXT_XPATH = "//div[@class='alert alert-danger']//ancestor::*[contains(text(),'%s')]";
 
     private static final String NEW_ADDRESS_NAME_XPATH = "//*[@id='center_column']//ancestor::*[contains(text(),'%s')]";
 
@@ -54,7 +53,7 @@ public class CreateNewAddressPage extends BasePage {
     void waitForPageOpened() {
     }
 
-    public void AddressesAdded() {
+    public void clickAddressesButton() {
         addressesButton.click();
     }
 
@@ -96,8 +95,8 @@ public class CreateNewAddressPage extends BasePage {
         return driver.findElement(By.xpath(String.format(NEW_ADDRESS_NAME_XPATH, headerText))).isDisplayed();
     }
 
-    public String getSearchTextIncorrectDataField() {
-        return incorrectFieldText.getText();
+    public boolean getSearchTextIncorrectDataField(String errorName) {
+        return driver.findElement(By.xpath(String.format(INCORRECT_FIELD_TEXT_XPATH, errorName))).isDisplayed();
     }
 
     public void inputNewTextInFieldsFormRegNewAddress(String newAddress) {
