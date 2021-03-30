@@ -27,12 +27,12 @@ public class HeaderPage extends BasePage {
         super(driver);
     }
 
-    @Step("Opening main product page: {AUTOMATION_PRACTICE_SHOP_URL}'")
+    @Step("Opening main product page: " + AUTOMATION_PRACTICE_SHOP_URL)
     public void openHeaderPage() {
         driver.get(AUTOMATION_PRACTICE_SHOP_URL);
     }
 
-    @Step("Click on tab in menu: {MENU_WOMEN_LINK} ")
+    @Step("Click on tab in menu: " + MENU_WOMEN_LINK)
     public void clickMenuHeaderLink(String tabHeader) {
         driver.findElement(By.xpath(String.format(MENU_WOMEN_LINK, tabHeader))).click();
     }

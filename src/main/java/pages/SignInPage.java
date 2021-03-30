@@ -32,7 +32,7 @@ public class SignInPage extends HeaderPage {
         super(driver);
     }
 
-    @Step("Opening the sign in page: '{SIGN_IN_URL}'")
+    @Step("Opening the sign in page: " + SIGN_IN_URL)
     public void openSignInPage() {
         driver.get(SIGN_IN_URL);
     }
