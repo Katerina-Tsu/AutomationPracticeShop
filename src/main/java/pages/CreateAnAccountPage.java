@@ -64,7 +64,7 @@ public class CreateAnAccountPage extends HeaderPage {
         super(driver);
     }
 
-    @Step("Inputting first name and click register.")
+    @Step("Inputting first name and click register '{firstName}'.")
     public void inputTextInFormFirstNameAndClickRegister(String firstName) {
         yourFirstNameField.sendKeys(firstName);
         registrationButton.click();
@@ -74,7 +74,7 @@ public class CreateAnAccountPage extends HeaderPage {
         return emptyFirstnameFieldErrorText.getText();
     }
 
-    @Step("Inputting short zipcode and click register.")
+    @Step("Inputting short zipcode and click register '{zipCode}'.")
     public void inputShortPswrdInField(String zipCode) {
         zipCodeField.sendKeys(zipCode);
         registrationButton.click();
@@ -109,12 +109,12 @@ public class CreateAnAccountPage extends HeaderPage {
         assignAddressField.sendKeys(assignCompanyName);
     }
 
-    @Step("Choosing state name.")
+    @Step("Choosing state name '{state}'.")
     public void chooseState(String state) {
         driver.findElement(By.xpath(String.format(stateField, state))).click();
     }
 
-    @Step("Choosing country name.")
+    @Step("Choosing country name '{country}'.")
     public void chooseCountry(String country) {
         driver.findElement(By.xpath(String.format(countryField, country))).click();
     }

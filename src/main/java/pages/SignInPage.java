@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,7 +33,8 @@ public class SignInPage extends HeaderPage {
         super(driver);
     }
 
-    @Step("Opening the sign in page: " + SIGN_IN_URL)
+    @Step("Opening the sign in page ")
+    @Link("http://automationpractice.com/index.php?controller=authentication&back=my-account")
     public void openSignInPage() {
         driver.get(SIGN_IN_URL);
     }
