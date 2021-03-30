@@ -63,8 +63,8 @@ public class CreateAnAccountPage extends HeaderPage {
         super(driver);
     }
 
-    public void inputTextInFormFirstNameAndClickRegister(String firstName) {
-        yourFirstNameField.sendKeys(firstName);
+    public void inputTextInFormFirstNameAndClickRegister(String yourFirstName) {
+        yourFirstNameField.sendKeys(yourFirstName);
         registrationButton.click();
     }
 
