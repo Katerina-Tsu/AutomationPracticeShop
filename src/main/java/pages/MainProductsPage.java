@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,11 +22,12 @@ public class MainProductsPage extends HeaderPage {
         super(driver);
     }
 
-//  @Step("Searches for a product name and selects it with product name: '{productNameItem}'")
+    @Step("Searches for a product name and selects it with product name: '{productNameItem}'")
     public void findProductNameOnPage(String productNameItem) {
         driver.findElement(By.xpath(String.format(PRODUCT_NAME_ON_MAIN_PAGE_TEXT, productNameItem))).click();
     }
 
+    @Step("Click on the selected product name: '{productNameItem}'")
     public void clickProductName(String productNameItem) {
         driver.findElement(By.xpath(String.format(PRODUCT_NAME, productNameItem))).click();
     }

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,21 +32,22 @@ public class YourShoppingCartSummaryPage extends HeaderPage {
         proceedToCheckoutOnShoppingCartSummaryButton.click();
     }
 
-//  @Step("Deleting a product from the cart with product name: '{productNameItem}'")
+    @Step("Deleting a product from the cart with product name: '{productNameItem}'")
     public void clickTrashButton(String productNameItem) {
         driver.findElement(By.xpath(String.format(TRASH_BUTTON, productNameItem))).click();
     }
 
-//  @Step("Show the number of products in the cart with product name: '{productNameItem}'")
+    @Step("Show the number of products in the cart with product name: '{productNameItem}'")
     public String getProductsQuantityOnMyCartPage(String productNameItem) {
         return driver.findElement(By.xpath(String.format(QUANTITY_PRODUCTS_ON_CART_PAGE, productNameItem))).getAttribute("value");
     }
 
-//  @Step("Show the total price of product in the cart with product name: '{productNameItem}'")
+    @Step("Show the total price of product in the cart with product name: '{productNameItem}'")
     public String getTotalPriceProducts(String productNameItem) {
         return driver.findElement(By.xpath(String.format(TOTAL_PRICE_SOME_ITEMS_PRODUCT, productNameItem))).getText();
     }
 
+    @Step("Showing text that shopping cart is empty")
     public String getShoppingCartIsEmptyText() {
         return shoppingCartIsEmptyText.getText();
     }

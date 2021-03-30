@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -63,6 +64,7 @@ public class CreateAnAccountPage extends HeaderPage {
         super(driver);
     }
 
+    @Step("Inputting first name and click register.")
     public void inputTextInFormFirstNameAndClickRegister(String firstName) {
         yourFirstNameField.sendKeys(firstName);
         registrationButton.click();
@@ -72,6 +74,7 @@ public class CreateAnAccountPage extends HeaderPage {
         return emptyFirstnameFieldErrorText.getText();
     }
 
+    @Step("Inputting short zipcode and click register.")
     public void inputShortPswrdInField(String zipCode) {
         zipCodeField.sendKeys(zipCode);
         registrationButton.click();
@@ -85,7 +88,7 @@ public class CreateAnAccountPage extends HeaderPage {
         return longZipcodeErrorText.getText();
     }
 
-//  @Step("Inputing data in fields for creating an account")
+    @Step("Inputting data in fields for creating an account")
     public void inputTextInRequiredFieldsFormAndReg(String yourFirstName, String yourLastName, String password,
                                                     String firstNameCompany, String lastNameCompany,
                                                     String addressCompany, String city, String zipCode,
@@ -94,7 +97,9 @@ public class CreateAnAccountPage extends HeaderPage {
         yourLastnameField.sendKeys(yourLastName);
         emailField.click();
         passwordField.sendKeys(password);
+        companyFirstNameField.clear();
         companyFirstNameField.sendKeys(firstNameCompany);
+        companyLastNameField.clear();
         companyLastNameField.sendKeys(lastNameCompany);
         yourAddressField.sendKeys(addressCompany);
         cityField.sendKeys(city);
@@ -104,10 +109,12 @@ public class CreateAnAccountPage extends HeaderPage {
         assignAddressField.sendKeys(assignCompanyName);
     }
 
+    @Step("Choosing state name.")
     public void chooseState(String state) {
         driver.findElement(By.xpath(String.format(stateField, state))).click();
     }
 
+    @Step("Choosing country name.")
     public void chooseCountry(String country) {
         driver.findElement(By.xpath(String.format(countryField, country))).click();
     }

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,17 +32,18 @@ public class SignInPage extends HeaderPage {
         super(driver);
     }
 
+    @Step("Opening the sign in page: '{SIGN_IN_URL}'")
     public void openSignInPage() {
         driver.get(SIGN_IN_URL);
     }
 
-//  @Step("Create a customer account with email: '{emailAddress}'")
+    @Step("Creating a customer account with email: '{emailAddress}'")
     public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
         emailAddressFieldInput.sendKeys(emailAddress);
         createAnAccountButton.click();
     }
 
-//    @Step("Sign In in customer account with email: '{emailAddress}' and password: '{password}'")
+    @Step("Sign In in customer account with email: '{emailAddress}' and password: '{password}'")
     public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
         emailFieldSignIn.sendKeys(emailAddress);
         passwordFieldSignIn.sendKeys(password);
@@ -52,6 +54,7 @@ public class SignInPage extends HeaderPage {
         return createAnAccountLabel.isDisplayed();
     }
 
+    @Step("Getting an error text that was inputted wrong email address")
     public String getEmailAddressText() {
         return errorWrongEmailAddressInField.getText();
     }

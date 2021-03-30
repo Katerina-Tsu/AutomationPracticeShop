@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +21,7 @@ public class ProductDetailsPage extends HeaderPage {
         addToCartInProductDetailsDButton.click();
     }
 
-    //  @Step("Increasing a number of products")
+    @Step("Increasing a number of products")
     public void increaseProductsQuantity() {
         increaseTheQuantityProductsButton.click();
         addToCartInProductDetailsDButton.click();

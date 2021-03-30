@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,14 +27,17 @@ public class HeaderPage extends BasePage {
         super(driver);
     }
 
+    @Step("Opening main product page: {AUTOMATION_PRACTICE_SHOP_URL}'")
     public void openHeaderPage() {
         driver.get(AUTOMATION_PRACTICE_SHOP_URL);
     }
 
+    @Step("Click on tab in menu: {MENU_WOMEN_LINK} ")
     public void clickMenuHeaderLink(String tabHeader) {
         driver.findElement(By.xpath(String.format(MENU_WOMEN_LINK, tabHeader))).click();
     }
 
+    @Step("Click on sign out button")
     public void clickSignOutBtnOnMyAccPage() {
         signOutBtn.click();
     }
@@ -46,6 +50,7 @@ public class HeaderPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(myAccountTextLabel));
     }
 
+    @Step("Getting an error text that shopping cart is empty")
     public String getShoppingCartIsEmptyHeaderText() {
         return shoppingCartIsEmptyHeaderText.getText();
     }
