@@ -95,7 +95,7 @@ public class CreateNewAddressPage extends BasePage {
         return driver.findElement(By.xpath(String.format(NEW_ADDRESS_NAME_XPATH, headerText))).isDisplayed();
     }
 
-    public boolean getSearchTextIncorrectDataField(String errorName) {
+    public boolean isIncorrectFieldErrorDisplayed(String errorName) {
         return driver.findElement(By.xpath(String.format(INCORRECT_FIELD_TEXT_XPATH, errorName))).isDisplayed();
     }
 

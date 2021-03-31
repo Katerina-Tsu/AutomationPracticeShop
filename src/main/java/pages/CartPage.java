@@ -13,7 +13,7 @@ public class CartPage extends BasePage {
     private static final String PRODUCT_TITLE_XPATH = "//*[@title = '%s']";
 
 
-    @FindBy(xpath = "//*[@id='add_to_cart']/button")
+    @FindBy(xpath = "//*[@name='Submit']")
     WebElement addToCart;
 
     @FindBy(xpath = "//*[@title='Continue shopping']")

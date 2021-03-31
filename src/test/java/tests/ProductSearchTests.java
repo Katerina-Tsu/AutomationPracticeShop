@@ -11,6 +11,6 @@ public class ProductSearchTests extends BaseTest{
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         productSearchPage.inputInSearchField(DRESS_ITEM);
-        Assert.assertTrue(productSearchPage.getSearchText(CORRECT_ITEMS_FOUND_RESULT));
+        Assert.assertTrue(productSearchPage.isSearchResultDisplayed(CORRECT_ITEMS_FOUND_RESULT));
     }
 }

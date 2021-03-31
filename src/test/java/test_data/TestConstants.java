@@ -25,5 +25,4 @@ public interface TestConstants {
     String DRESS_ITEM = "Dress";
     String CORRECT_ITEMS_FOUND_RESULT = "7 results have been found.";
     String CORRECT_ITEMS_FOUND_RESULT_CLOTHES = "There is 1 product.";
-    String FIELD_WITH_INCORRECT_DATA = "address1 is required.";
 }

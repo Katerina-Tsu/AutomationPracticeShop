@@ -43,7 +43,7 @@ public class CreateNewAddressTest extends BaseTest {
                 "Alabama"
         );
         createNewAddressPage.clickSaveButton();
-        Assert.assertTrue(createNewAddressPage.getSearchTextIncorrectDataField("address1"));
+        Assert.assertTrue(createNewAddressPage.isIncorrectFieldErrorDisplayed("address1"));
     }
 
 }

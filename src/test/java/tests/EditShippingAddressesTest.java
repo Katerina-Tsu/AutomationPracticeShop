@@ -12,7 +12,7 @@ public class EditShippingAddressesTest extends BaseTest {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         createNewAddressPage.clickAddressesButton();
-        headerPage.clickOnEditAddressButton();
+        headerPage.clickUpdateButton();
         createNewAddressPage.inputNewTextInFieldsFormRegNewAddress(FIELD_WITH_REDACTED_NAME_ADDRESS);
         createNewAddressPage.clickSaveButton();
         Assert.assertTrue(createNewAddressPage.isNewAddressNameDisplayed(FIELD_WITH_REDACTED_NAME_ADDRESS_CHECK));

@@ -30,7 +30,7 @@ public class ProductSearchPage extends BasePage {
         searchActivation.click();
     }
 
-    public boolean getSearchText(String headerText) {
+    public boolean isSearchResultDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(SEARCH_CORRECT_RESULT_XPATH, headerText))).isDisplayed();
     }
 
