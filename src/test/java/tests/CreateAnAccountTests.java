@@ -1,8 +1,10 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Log4j2
 public class CreateAnAccountTests extends BaseTest {
 
     @Test(groups = "Katia", description = "Empty email address verification.", priority = 3)

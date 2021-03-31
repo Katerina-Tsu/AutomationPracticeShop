@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,6 +13,7 @@ import test_data.TestConstants;
 
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 @Listeners(TestListener.class)
 public class BaseTest implements TestConstants {
     WebDriver driver;
@@ -33,7 +35,11 @@ public class BaseTest implements TestConstants {
     public void initTest() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        driver = new ChromeDriver(chromeOptions);
+        String browser = System.getProperty("browser");
+        if (browser.equals("chrome")) {
+            driver = new ChromeDriver(chromeOptions);
+        }
+        log.debug(String.format("Opening '%s' browser", browser));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         initPage();
@@ -41,7 +47,7 @@ public class BaseTest implements TestConstants {
 
     @AfterMethod(alwaysRun = true)
     public void endTest() {
-        driver.quit();
+            driver.quit();
     }
 
     public void initPage() {
