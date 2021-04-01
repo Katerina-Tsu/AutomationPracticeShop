@@ -20,7 +20,7 @@ public class HeaderPage extends BasePage{
     WebElement tshirtsCategoryButton;
 
     @FindBy(xpath = "(//*[@id='center_column']//ancestor::*[contains(text(),'Update')])[2]")
-    WebElement UpdateButton;
+    WebElement updateButton;
 
     @FindBy(xpath = "//*[@title='My wishlists']")
     WebElement editWishlistButton;
@@ -54,7 +54,7 @@ public class HeaderPage extends BasePage{
 
     public void clickWishlistButton() {saveWishlistButton.click();}
 
-    public void clickUpdateButton() {UpdateButton.click();}
+    public void clickUpdateButton() {updateButton.click();}
 
     public boolean isNewWishlistNameDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(NEW_WISHLIST_NAME_XPATH, headerText))).isDisplayed();
