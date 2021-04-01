@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Customer extends BaseTest {
+public class Customer {
     private String emailAddress;
     private String yourFirstName;
     private String yourLastName;
@@ -23,4 +23,5 @@ public class Customer extends BaseTest {
     private String country;
     private String phoneNumber;
     private String assignCompanyName;
+
 }
