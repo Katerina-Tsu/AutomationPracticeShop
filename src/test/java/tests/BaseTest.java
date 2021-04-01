@@ -14,8 +14,11 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest implements TestConstants {
     WebDriver driver;
     SignInPage signInPage;
-    HeaderPage headerPage;
     CreateAnAccountPage createAnAccountPage;
+    MyAccountPage myAccountPage;
+    MainProductsPage mainProductsPage;
+    YourShoppingCartPage yourShoppingCartPage;
+    HeaderPage headerPage;
     CreateNewAddressPage createNewAddressPage;
     ProductSearchPage productSearchPage;
     CartPage cartPage;
@@ -37,8 +40,11 @@ public class BaseTest implements TestConstants {
 
     public void initPage() {
         signInPage = new SignInPage(driver);
-        headerPage = new HeaderPage(driver);
         createAnAccountPage = new CreateAnAccountPage(driver);
+        myAccountPage = new MyAccountPage(driver);
+        mainProductsPage = new MainProductsPage(driver);
+        yourShoppingCartPage = new YourShoppingCartPage(driver);
+        headerPage = new HeaderPage(driver);
         productSearchPage = new ProductSearchPage(driver);
         createNewAddressPage = new CreateNewAddressPage(driver);
         cartPage = new CartPage(driver);
