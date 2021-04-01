@@ -19,7 +19,6 @@ public class BaseTest implements TestConstants {
     WebDriver driver;
     SignInPage signInPage;
     CreateAnAccountPage createAnAccountPage;
-    MyAccountPage myAccountPage;
     MainProductsPage mainProductsPage;
     ProductDetailsPage productDetailsPage;
     ProductDetailsModal productDetailsModal;
@@ -30,6 +29,9 @@ public class BaseTest implements TestConstants {
     YourShoppingCartPaymentPage yourShoppingCartPaymentPage;
     OrderConfirmationPaymentPage orderConfirmationPaymentPage;
     HeaderPage headerPage;
+    CreateNewAddressPage createNewAddressPage;
+    ProductSearchPage productSearchPage;
+    CartPage cartPage;
 
     @BeforeMethod
     public void initTest() {
@@ -49,7 +51,6 @@ public class BaseTest implements TestConstants {
     public void initPage() {
         signInPage = new SignInPage(driver);
         createAnAccountPage = new CreateAnAccountPage(driver);
-        myAccountPage = new MyAccountPage(driver);
         mainProductsPage = new MainProductsPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         productDetailsModal = new ProductDetailsModal(driver);
@@ -60,5 +61,8 @@ public class BaseTest implements TestConstants {
         yourShoppingCartPaymentPage = new YourShoppingCartPaymentPage(driver);
         orderConfirmationPaymentPage = new OrderConfirmationPaymentPage(driver);
         headerPage = new HeaderPage(driver);
+        productSearchPage = new ProductSearchPage(driver);
+        createNewAddressPage = new CreateNewAddressPage(driver);
+        cartPage = new CartPage(driver);
     }
 }

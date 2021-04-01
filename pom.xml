@@ -21,6 +21,14 @@
         <jackson-dataformat-yaml.version>2.12.1</jackson-dataformat-yaml.version>
         <lombok.versoin>1.18.18</lombok.versoin>
         <webdrivermanager.version>4.2.2</webdrivermanager.version>
+        <allure.testng.version>2.13.8</allure.testng.version>
+        <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <aspectjweaver.version>1.9.1</aspectjweaver.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <log4j-core.version>2.13.3</log4j-core.version>
+        <lombok.versoin>1.18.18</lombok.versoin>
+        <webdrivermanager.version>4.2.2</webdrivermanager.version>
     </properties>
 
     <build>
@@ -63,17 +71,15 @@
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>

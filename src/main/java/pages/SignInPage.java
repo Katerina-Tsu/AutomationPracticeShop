@@ -3,6 +3,7 @@ package pages;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,6 +32,11 @@ public class SignInPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='SubmitLogin']")
     WebElement signInButton;
 
+    @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Authentication failed.')]")
+    WebElement signInErrorText;
+
+    private static final String SIGNED_IN_USERNAME_LABEL_XPATH = "//*[@id='header']//ancestor::*[contains(text(),'%s')]";
+
     public SignInPage(WebDriver driver) {
         super(driver);
     }
@@ -57,6 +63,12 @@ public class SignInPage extends HeaderPage {
         signInButton.click();
     }
 
+    public void fillInSignInForm(String emailAddress, String password) {
+        emailFieldSignIn.sendKeys(emailAddress);
+        passwordFieldSignIn.sendKeys(password);
+        signInButton.click();
+    }
+
     public boolean isPageOpened() {
         log.info("Show that page is open: " + createAnAccountLabel);
         return createAnAccountLabel.isDisplayed();
@@ -67,4 +79,18 @@ public class SignInPage extends HeaderPage {
         log.info("Get an error text 'wrong email address': " + errorWrongEmailAddressInField);
         return errorWrongEmailAddressInField.getText();
     }
+
+    public String getErrorTextSignIn() {
+        return signInErrorText.getText();
+    }
+
+    public void openPage(String url) {
+        super.openPage(SIGN_IN_URL);
+    }
+
+    public boolean isHeaderLabelDisplayed(String headerText) {
+        return driver.findElement(By.xpath(String.format(SIGNED_IN_USERNAME_LABEL_XPATH, headerText))).isDisplayed();
+    }
+
+    public boolean isSignInButtonDisplayed () { return signInButton.isDisplayed(); }
 }
