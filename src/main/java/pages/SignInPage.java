@@ -28,15 +28,6 @@ public class SignInPage extends HeaderPage {
     @FindBy(xpath = "//*[@id='SubmitLogin']")
     WebElement signInButton;
 
-    @FindBy(xpath = "//*[@id='email']")
-    WebElement emailAddressFieldInputSignIn;
-
-    @FindBy(xpath = "//*[@id='passwd']")
-    WebElement passwordFieldInputSignIn;
-
-    @FindBy(xpath = "//*[@id='SubmitLogin']")
-    WebElement signInButton;
-
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'Authentication failed.')]")
     WebElement signInErrorText;
 
@@ -52,8 +43,8 @@ public class SignInPage extends HeaderPage {
     }
 
     public void fillInSignInForm(String emailAddress, String password) {
-        emailAddressFieldInputSignIn.sendKeys(emailAddress);
-        passwordFieldInputSignIn.sendKeys(password);
+        emailFieldSignIn.sendKeys(emailAddress);
+        passwordFieldSignIn.sendKeys(password);
         signInButton.click();
     }
 
@@ -76,6 +67,6 @@ public class SignInPage extends HeaderPage {
     public boolean isHeaderLabelDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(SIGNED_IN_USERNAME_LABEL_XPATH, headerText))).isDisplayed();
     }
-    public boolean isSignInButtonDisplayed () { return signInButton.isDisplayed(); }
 
+    public boolean isSignInButtonDisplayed () { return signInButton.isDisplayed(); }
 }

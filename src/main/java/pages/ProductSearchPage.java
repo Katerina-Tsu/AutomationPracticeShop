@@ -21,10 +21,6 @@ public class ProductSearchPage extends BasePage {
     @FindBy(xpath = "//*[@class='heading-counter']")
     WebElement searchCorrectResultTshirts;
 
-    @Override
-    void waitForPageOpened() {
-    }
-
     public void inputInSearchField (String search){
         searchField.sendKeys(search);
         searchActivation.click();

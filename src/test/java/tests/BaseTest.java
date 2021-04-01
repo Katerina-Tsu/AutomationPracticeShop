@@ -15,7 +15,6 @@ public class BaseTest implements TestConstants {
     WebDriver driver;
     SignInPage signInPage;
     CreateAnAccountPage createAnAccountPage;
-    MyAccountPage myAccountPage;
     MainProductsPage mainProductsPage;
     YourShoppingCartPage yourShoppingCartPage;
     HeaderPage headerPage;
@@ -41,7 +40,6 @@ public class BaseTest implements TestConstants {
     public void initPage() {
         signInPage = new SignInPage(driver);
         createAnAccountPage = new CreateAnAccountPage(driver);
-        myAccountPage = new MyAccountPage(driver);
         mainProductsPage = new MainProductsPage(driver);
         yourShoppingCartPage = new YourShoppingCartPage(driver);
         headerPage = new HeaderPage(driver);

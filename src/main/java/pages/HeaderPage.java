@@ -32,14 +32,8 @@ public class HeaderPage extends BasePage {
     @FindBy(xpath = "//*[@class='page-heading']")
     WebElement myAccountTextLabel;
 
-    @FindBy(xpath = "//*[@title='Women'][1]")
-    WebElement womenCategoryButton;
-
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(), 'Sign out')]")
     WebElement signOutButton ;
-
-    @FindBy(xpath = "(//*[@title='T-shirts'])[2]")
-    WebElement tshirtsCategoryButton;
 
     @FindBy(xpath = "(//*[@id='center_column']//ancestor::*[contains(text(),'Update')])[2]")
     WebElement updateButton;
@@ -53,7 +47,7 @@ public class HeaderPage extends BasePage {
     @FindBy(xpath = "//*[@id='name']")
     WebElement wishlistField;
 
-    String menuWomenLink = "//*[@class='sf-with-ul']//ancestor::*[contains(text(),'%s')]";
+    String menuLink = "//ul[not(contains(@style,'display: none;'))]/li/*[contains(text(),'%s')]";
 
     String productName = "//*[@class='product-name']//self::*[contains(text(),'%s')]";
 
@@ -64,7 +58,7 @@ public class HeaderPage extends BasePage {
     }
 
     public void clickMenuHeaderLink(String tabHeader) {
-        driver.findElement(By.xpath(String.format(menuWomenLink, tabHeader))).click();
+        driver.findElement(By.xpath(String.format(menuLink, tabHeader))).click();
     }
 
     public void clickProductName(String productNameItem) {
@@ -93,5 +87,21 @@ public class HeaderPage extends BasePage {
         passwordFieldSignIn.sendKeys(password);
         signInButton.click();
     }
+    public void clickSignOutProfile() {
+        signOutButton.click();
+    }
 
+    public void clickOnMyWishlist() {editWishlistButton.click();}
+
+    public void inputTextInFieldsNewWishlist(String wishlist) {
+        wishlistField.sendKeys(wishlist);
+    }
+
+    public void clickWishlistButton() {saveWishlistButton.click();}
+
+    public void clickUpdateButton() {updateButton.click();}
+
+    public boolean isNewWishlistNameDisplayed(String headerText) {
+        return driver.findElement(By.xpath(String.format(NEW_WISHLIST_NAME_XPATH, headerText))).isDisplayed();
+    }
 }

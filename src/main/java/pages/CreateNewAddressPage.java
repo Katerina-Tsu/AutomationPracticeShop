@@ -49,10 +49,6 @@ public class CreateNewAddressPage extends BasePage {
 
     private static final String STATE_FIELD_XPATH = "//*[@id='id_state']//ancestor::*[contains(text(),'%s')]";
 
-    @Override
-    void waitForPageOpened() {
-    }
-
     public void clickAddressesButton() {
         addressesButton.click();
     }

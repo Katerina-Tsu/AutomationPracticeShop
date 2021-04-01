@@ -10,7 +10,7 @@ public class CartTest extends BaseTest{
     public void productCartTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        headerPage.clickOnWomenCategoryButton();
+        headerPage.clickMenuHeaderLink("Women");
         cartPage.clickOnProduct("Blouse");
         cartPage.clickOnAddToCartButton();
         cartPage.clickAddToCart();

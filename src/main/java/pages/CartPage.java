@@ -24,10 +24,6 @@ public class CartPage extends BasePage {
 
     private static final String SIGNED_IN_DESCRIPTION_LABEL_XPATH = "//*[@class='cart_description']//ancestor::*[contains(text(),'%s')]";
 
-    @Override
-    void waitForPageOpened() {
-    }
-
     public void clickOnProduct(String productName) {
         driver.findElement(By.xpath(String.format(PRODUCT_TITLE_XPATH,productName))).click();
     }

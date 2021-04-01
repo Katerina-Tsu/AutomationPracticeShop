@@ -10,7 +10,7 @@ public class TshirtsTest extends BaseTest{
     public void tshirtsProductTest() {
         signInPage.openPage(SIGN_IN_URL);
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        headerPage.clickOnTshirtsCategoryButton();
+        headerPage.clickMenuHeaderLink("T-shirts");
         Assert.assertEquals(productSearchPage.getSearchTextTshirts(), CORRECT_ITEMS_FOUND_RESULT_CLOTHES);
     }
 }
