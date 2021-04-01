@@ -1,11 +1,13 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class CreateAnAccountPage extends HeaderPage {
 
     @FindBy(xpath = "//*[contains(text(),'Your personal information')]")
@@ -65,8 +67,9 @@ public class CreateAnAccountPage extends HeaderPage {
     }
 
     @Step("Inputting first name and click register '{firstName}'.")
-    public void inputTextInFormFirstNameAndClickRegister(String firstName) {
-        yourFirstNameField.sendKeys(firstName);
+    public void inputTextInFormFirstNameAndClickRegister(String yourFirstName) {
+        log.info(String.format("Inputting first name '%s' and clicking on register button", yourFirstName));
+        yourFirstNameField.sendKeys(yourFirstName);
         registrationButton.click();
     }
 
@@ -76,6 +79,7 @@ public class CreateAnAccountPage extends HeaderPage {
 
     @Step("Inputting short zipcode and click register '{zipCode}'.")
     public void inputShortPswrdInField(String zipCode) {
+        log.info(String.format("Inputting short zipcode '%s' and clicking on register button", zipCode));
         zipCodeField.sendKeys(zipCode);
         registrationButton.click();
     }
@@ -111,11 +115,13 @@ public class CreateAnAccountPage extends HeaderPage {
 
     @Step("Choosing state name '{state}'.")
     public void chooseState(String state) {
+        log.info(String.format("Choosing state name '%s': ", state));
         driver.findElement(By.xpath(String.format(stateField, state))).click();
     }
 
     @Step("Choosing country name '{country}'.")
     public void chooseCountry(String country) {
+        log.info(String.format("Choosing country name '%s': ", country));
         driver.findElement(By.xpath(String.format(countryField, country))).click();
     }
 }

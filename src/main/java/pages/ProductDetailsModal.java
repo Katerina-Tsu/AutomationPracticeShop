@@ -24,9 +24,7 @@ public class ProductDetailsModal extends HeaderPage{
         proceedToCheckoutButton.click();
     }
 
-    public void waitForPageOpened() {
-        wait.until(ExpectedConditions.visibilityOf(cartStorePageLabel));
-    }
+    public void waitForPageOpened() { wait.until(ExpectedConditions.visibilityOf(cartStorePageLabel)); }
 
     public boolean isTickProductAddedToCartPageOpened() {
         return tickProductAddedToCartLabel.isDisplayed();

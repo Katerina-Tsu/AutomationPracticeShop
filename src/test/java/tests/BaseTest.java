@@ -35,11 +35,7 @@ public class BaseTest implements TestConstants {
     public void initTest() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        String browser = System.getProperty("browser");
-        if (browser.equals("chrome")) {
-            driver = new ChromeDriver(chromeOptions);
-        }
-        log.debug(String.format("Opening '%s' browser", browser));
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         initPage();

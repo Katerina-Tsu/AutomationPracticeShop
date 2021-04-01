@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AutomationPracticeShop" target="1.8" />
+      <module name="AutomationPracticeShop" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
