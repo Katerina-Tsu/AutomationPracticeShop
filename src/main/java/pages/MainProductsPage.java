@@ -8,12 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainProductsPage extends HeaderPage {
 
-    @FindBy(xpath = "//*[@id='email_create']")
-    WebElement emailAddressFieldInput;
-
-    @FindBy(xpath = "//*[@id='SubmitCreate']")
-    WebElement createAnAccountButton;
-
     @FindBy(xpath = "//*[@class='cross']")
     WebElement cartStorePageLabel;
 
