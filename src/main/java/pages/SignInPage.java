@@ -1,10 +1,12 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class SignInPage extends HeaderPage {
 
     @FindBy(xpath = "//*[@id='email_create']")
@@ -65,6 +67,7 @@ public class SignInPage extends HeaderPage {
     }
 
     public boolean isHeaderLabelDisplayed(String headerText) {
+        log.info("The user went to the site" + headerText);
         return driver.findElement(By.xpath(String.format(SIGNED_IN_USERNAME_LABEL_XPATH, headerText))).isDisplayed();
     }
 
