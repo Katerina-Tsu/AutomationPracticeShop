@@ -20,6 +20,7 @@ public class BaseTest implements TestConstants {
     SignInPage signInPage;
     CreateAnAccountPage createAnAccountPage;
     MainProductsPage mainProductsPage;
+    MyAccountPage myAccountPage;
     ProductDetailsPage productDetailsPage;
     ProductDetailsModal productDetailsModal;
     YourShoppingCartSummaryPage yourShoppingCartSummaryPage;
@@ -52,6 +53,7 @@ public class BaseTest implements TestConstants {
         signInPage = new SignInPage(driver);
         createAnAccountPage = new CreateAnAccountPage(driver);
         mainProductsPage = new MainProductsPage(driver);
+        myAccountPage = new MyAccountPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         productDetailsModal = new ProductDetailsModal(driver);
         yourShoppingCartSummaryPage = new YourShoppingCartSummaryPage(driver);

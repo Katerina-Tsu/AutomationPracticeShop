@@ -42,5 +42,4 @@ public class CartPage extends BasePage {
         addToCart.click();
         driver.switchTo().defaultContent();
     }
-
 }

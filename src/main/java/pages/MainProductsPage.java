@@ -22,18 +22,6 @@ public class MainProductsPage extends HeaderPage {
     @FindBy(xpath = "//*[@class='icon-ok']")
     WebElement tickProductAddedToCartLabel;
 
-    @FindBy(xpath = "//*[@id='email_create']")
-    WebElement emailAddressFieldInput;
-
-    @FindBy(xpath = "//*[@id='SubmitCreate']")
-    WebElement createAnAccountButton;
-
-    @FindBy(xpath = "//*[@class='cross']")
-    WebElement cartStorePageLabel;
-
-    @FindBy(xpath = "//*[@class='icon-ok']")
-    WebElement tickProductAddedToCartLabel;
-
     private static final String PRODUCT_NAME = "//*[@class='product-name']//self::*[contains(text(),'%s')]";
 
     private static final String PRODUCT_NAME_ON_MAIN_PAGE_TEXT = "//*[@id='homefeatured']//self::*[contains(text(),'%s')]";

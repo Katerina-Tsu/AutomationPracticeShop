@@ -10,7 +10,7 @@ public class HeaderTest extends BaseTest{
         signInPage.openSignInPage();
         signInPage.fillInEmailAndClickSignInBtn(REGISTERED_EMAIL_ADDRESS, FIELD_PASSWORD);
         headerPage.waitForMyAccountPageOpened();
-        headerPage.clickSignOutBtnOnMyAccPage();
+        headerPage.clickSignOutBtn();
         Assert.assertTrue(myAccountPage.isSignInHeaderButtonShown());
     }
 }

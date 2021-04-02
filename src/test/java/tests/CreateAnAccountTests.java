@@ -44,6 +44,6 @@ public class CreateAnAccountTests extends BaseTest {
         createAnAccountPage.chooseState(state);
         createAnAccountPage.chooseCountry(country);
         createAnAccountPage.clickRegisterButton();
-        Assert.assertTrue(myAccountPage.isMyAccountPagePageOpened());
+        Assert.assertTrue(createAnAccountPage.isMyAccountPagePageOpened());
     }
 }
