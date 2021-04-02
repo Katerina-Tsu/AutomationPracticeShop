@@ -12,7 +12,6 @@ public class CartPage extends BasePage {
 
     private static final String PRODUCT_TITLE_XPATH = "//*[@title = '%s']";
 
-
     @FindBy(xpath = "//*[@name='Submit']")
     WebElement addToCart;
 
