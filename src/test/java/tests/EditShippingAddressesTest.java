@@ -9,7 +9,7 @@ public class EditShippingAddressesTest extends BaseTest {
 
     @Test(groups = "Sasha", description = "Remove the shipping address")
     public void EditShippingAddressesTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         createNewAddressPage.clickAddressesButton();
         headerPage.clickUpdateButton();

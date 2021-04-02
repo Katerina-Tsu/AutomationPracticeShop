@@ -8,7 +8,7 @@ import static constants.CommonConstants.SIGN_IN_URL;
 public class TshirtsTest extends BaseTest{
     @Test(groups = "Sasha", description = "Check when the t-shirts is found on the site")
     public void tshirtsProductTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         headerPage.clickMenuHeaderLink("T-shirts");
         Assert.assertEquals(productSearchPage.getSearchTextTshirts(), CORRECT_ITEMS_FOUND_RESULT_CLOTHES);

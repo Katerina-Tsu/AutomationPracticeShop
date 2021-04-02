@@ -56,18 +56,18 @@ public class SignInPage extends HeaderPage {
     }
 
     @Step("Sign In in customer account with email: '{emailAddress}' and password: '{password}'")
-    public void fillInEmailAndClickSignInBtn(String emailAddress, String password) {
+    public void fillInSignInForm(String emailAddress, String password) {
         log.info(String.format("Signing in with email '%s', password '%s'", emailAddress, password));
         emailFieldSignIn.sendKeys(emailAddress);
         passwordFieldSignIn.sendKeys(password);
         signInButton.click();
     }
 
-    public void fillInSignInForm(String emailAddress, String password) {
-        emailFieldSignIn.sendKeys(emailAddress);
-        passwordFieldSignIn.sendKeys(password);
-        signInButton.click();
-    }
+//    public void fillInSignInForm(String emailAddress, String password) {
+//        emailFieldSignIn.sendKeys(emailAddress);
+//        passwordFieldSignIn.sendKeys(password);
+//        signInButton.click();
+//    }
 
     public boolean isPageOpened() {
         log.info("Show that page is open: " + createAnAccountLabel);
@@ -84,9 +84,9 @@ public class SignInPage extends HeaderPage {
         return signInErrorText.getText();
     }
 
-    public void openPage(String url) {
-        super.openPage(SIGN_IN_URL);
-    }
+//    public void openPage(String url) {
+//        super.openPage(SIGN_IN_URL);
+//    }
 
     public boolean isHeaderLabelDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(SIGNED_IN_USERNAME_LABEL_XPATH, headerText))).isDisplayed();
