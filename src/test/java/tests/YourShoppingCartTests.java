@@ -21,7 +21,7 @@ public class YourShoppingCartTests extends HeaderTest{
             priority = 2)
     public void makeEntirePaymentCycle() {
         signInPage.openSignInPage();
-        signInPage.fillInSignInForm(REGISTERED_EMAIL_ADDRESS, FIELD_PASSWORD);
+        signInPage.fillInSignInForm(REGISTERED_EMAIL_ADDRESS, PASSWORD);
         myAccountPage.waitForMyAccountPageOpened();
         headerPage.clickMenuHeaderLink("Women");
         mainProductsPage.clickProductName("Printed Chiffon Dress");

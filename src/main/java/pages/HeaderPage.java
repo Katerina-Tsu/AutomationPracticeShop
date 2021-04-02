@@ -51,9 +51,7 @@ public class HeaderPage extends BasePage {
     @FindBy(xpath = "//*[@id='name']")
     WebElement wishlistField;
 
-    String menuLink = "//ul[not(contains(@style,'display: none;'))]/li/*[contains(text(),'%s')]";
-
-//    private static final String MENU_WOMEN_LINK = "//*[@class='sf-with-ul']//ancestor::*[contains(text(),'%s')]";
+    private static final String menuLink = "//ul[not(contains(@style,'display: none;'))]/li/*[contains(text(),'%s')]";
 
     private static final String NEW_WISHLIST_NAME_XPATH = "//*[@id='block-history']//ancestor::*[contains(text(),'%s')]";
 
@@ -92,8 +90,6 @@ public class HeaderPage extends BasePage {
         return shoppingCartIsEmptyHeaderText.getText();
     }
 
-//    public void clickSignOutProfile() {signOutBtn.click();}
-
     public void clickOnMyWishlist() {editWishlistButton.click();}
 
     public void inputTextInFieldsNewWishlist(String wishlist) {
@@ -107,17 +103,4 @@ public class HeaderPage extends BasePage {
     public boolean isNewWishlistNameDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(NEW_WISHLIST_NAME_XPATH, headerText))).isDisplayed();
     }
-
-//    public void clickMenuHeaderLink(String tabHeader) {
-//        driver.findElement(By.xpath(String.format(menuLink, tabHeader))).click();
-//    }
-
-//    public void clickProductName(String productNameItem) {
-//        driver.findElement(By.xpath(String.format(productName, productNameItem))).click();
-//    }
-
-//    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
-//        emailAddressFieldInput.sendKeys(emailAddress);
-//        createAnAccountButton.click();
-//    }
 }

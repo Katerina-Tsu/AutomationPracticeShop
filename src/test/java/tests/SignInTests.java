@@ -47,5 +47,4 @@ public class SignInTests extends BaseTest {
         headerPage.clickSignOutBtn();
         Assert.assertTrue(signInPage.isSignInButtonDisplayed ());
     }
-
 }

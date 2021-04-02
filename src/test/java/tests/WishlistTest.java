@@ -3,8 +3,6 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static constants.CommonConstants.SIGN_IN_URL;
-
 public class WishlistTest extends BaseTest{
     @Test(groups = "Sasha", description = "Addition Wishlist")
     public void WishlistTest() {
