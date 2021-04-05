@@ -57,7 +57,7 @@ public class HeaderPage extends BasePage {
     }
 
     public void clickMenuHeaderLink(String tabHeader) {
-        log.info("Click on '%s' button in the main menu",tabHeader);
+        log.info(String.format("Click on '%s' button in the main menu",tabHeader));
         driver.findElement(By.xpath(String.format(menuLink, tabHeader))).click();
     }
 

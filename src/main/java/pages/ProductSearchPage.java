@@ -29,7 +29,7 @@ public class ProductSearchPage extends BasePage {
     }
 
     public boolean isSearchResultDisplayed(String headerText) {
-        log.info("Checking the correct search result: %s is displayed", headerText);
+        log.info(String.format("Checking the correct search result: %s is displayed", headerText));
         return driver.findElement(By.xpath(String.format(SEARCH_CORRECT_RESULT_XPATH, headerText))).isDisplayed();
     }
 
