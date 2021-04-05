@@ -30,7 +30,7 @@ public class MainProductsPage extends HeaderPage {
     }
 
     public void findProductNameOnMainPage(String productNameItem) {
-        log.info("Choosing a product on the site" + productNameItem);
+        log.info("Choosing a product: '%s' on the Main page", productNameItem);
         driver.findElement(By.xpath(String.format(productNameOnMainPageText, productNameItem))).click();
     }
 

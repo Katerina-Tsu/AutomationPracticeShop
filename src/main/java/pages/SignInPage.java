@@ -67,7 +67,7 @@ public class SignInPage extends HeaderPage {
     }
 
     public boolean isHeaderLabelDisplayed(String headerText) {
-        log.info("The user went to the site" + headerText);
+        log.info("Checking signed in username: '%s' is displayed in Header", headerText);
         return driver.findElement(By.xpath(String.format(SIGNED_IN_USERNAME_LABEL_XPATH, headerText))).isDisplayed();
     }
 

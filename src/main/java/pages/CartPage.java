@@ -39,7 +39,7 @@ public class CartPage extends BasePage {
     }
 
     public void clickOnAddToCartButton() {
-        log.info("Use iframe to click on the button in the pop-up window");
+        log.info("Click on the 'Add to Cart' button in the pop-up window");
         driver.switchTo().frame(driver.findElement(By.className("fancybox-iframe")));
         addToCart.click();
         driver.switchTo().defaultContent();
