@@ -1,10 +1,12 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class CreateNewAddressPage extends BasePage {
     public CreateNewAddressPage(WebDriver driver) {
         super(driver);
@@ -60,6 +62,8 @@ public class CreateNewAddressPage extends BasePage {
     public void inputTextInFieldsFormRegNewAddress(String firstName, String lastName, String newAddress,
                                                     String newCity, String newPostcode,
                                                     String newHomePhone, String newMobilePhone, String addressTitleField, String stateName) {
+        log.info(String.format("Registration account firstName '%s', lastName '%s', newAddress '%s', newCity '%s', newPostcode '%s', newHomePhone '%s', newMobilePhone '%s', addressTitleField '%s', stateName '%s'", firstName, lastName,
+                newAddress, newCity, newPostcode, newHomePhone, newMobilePhone, addressTitleField, stateName));
         firstNameField.sendKeys(firstName);
         lastNameField.sendKeys(lastName);
         newAddressField.sendKeys(newAddress);

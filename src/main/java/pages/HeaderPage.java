@@ -1,11 +1,13 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class HeaderPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='email']")
@@ -25,9 +27,6 @@ public class HeaderPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='header']//ancestor::*[contains(text(),'Sign out')]")
     WebElement signOutBtn;
-
-    @FindBy(xpath = "//*[@class='login']//ancestor::*[contains(text(),'Sign in')]")
-    WebElement signInHeaderButton;
 
     @FindBy(xpath = "//*[@class='page-heading']")
     WebElement myAccountTextLabel;
@@ -58,6 +57,7 @@ public class HeaderPage extends BasePage {
     }
 
     public void clickMenuHeaderLink(String tabHeader) {
+        log.info(String.format("Click on '%s' button in the main menu",tabHeader));
         driver.findElement(By.xpath(String.format(menuLink, tabHeader))).click();
     }
 
@@ -72,10 +72,6 @@ public class HeaderPage extends BasePage {
 
     public void signOutBtnOnMyAccPage() {
         signOutBtn.click();
-    }
-
-    public boolean isSignInHeaderButtonShown() {
-        return signInHeaderButton.isDisplayed();
     }
 
     public void waitForMyAccountPageOpened() {

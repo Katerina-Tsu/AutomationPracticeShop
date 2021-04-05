@@ -1,9 +1,11 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class CreateAnAccountPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='email_create']")
@@ -11,9 +13,6 @@ public class CreateAnAccountPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='SubmitCreate']")
     WebElement createAnAccountButton;
-
-    @FindBy(xpath = "//*[contains(text(),'Your personal information')]")
-    WebElement yourPersonalInfoLabel;
 
     @FindBy(xpath = "//*[@id='customer_firstname']")
     WebElement fieldYourFirstName;
@@ -101,6 +100,8 @@ public class CreateAnAccountPage extends BasePage {
                                                     String lastnameCompany, String yourAddress,
                                                     String city, String zipCode, String mobPhone,
                                                     String assignNameAddress) {
+        log.info(String.format("Registration account firstName '%s', lastname '%s', pswrd '%s', firstnameCompany '%s', lastnameCompany '%s', yourAddress '%s', city '%s', zipCode '%s', mobPhone '%s', assignNameAddress '%s',", firstName, lastname,
+                 pswrd, firstnameCompany, lastnameCompany, yourAddress, city, zipCode, mobPhone, assignNameAddress));
         fieldYourFirstName.sendKeys(firstName);
         fieldYourLastname.sendKeys(lastname);
         fieildEmail.click();

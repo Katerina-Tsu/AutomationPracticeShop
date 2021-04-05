@@ -1,17 +1,18 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
 
     private static final String PRODUCT_TITLE_XPATH = "//*[@title = '%s']";
-
 
     @FindBy(xpath = "//*[@name='Submit']")
     WebElement addToCart;
@@ -38,9 +39,9 @@ public class CartPage extends BasePage {
     }
 
     public void clickOnAddToCartButton() {
+        log.info("Click on the 'Add to Cart' button in the pop-up window");
         driver.switchTo().frame(driver.findElement(By.className("fancybox-iframe")));
         addToCart.click();
         driver.switchTo().defaultContent();
     }
-
 }

@@ -1,10 +1,12 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class ProductSearchPage extends BasePage {
     public ProductSearchPage(WebDriver driver) {
         super(driver);
@@ -27,6 +29,7 @@ public class ProductSearchPage extends BasePage {
     }
 
     public boolean isSearchResultDisplayed(String headerText) {
+        log.info(String.format("Checking the correct search result: %s is displayed", headerText));
         return driver.findElement(By.xpath(String.format(SEARCH_CORRECT_RESULT_XPATH, headerText))).isDisplayed();
     }
 
