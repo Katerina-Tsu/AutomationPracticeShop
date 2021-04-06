@@ -3,51 +3,48 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static constants.CommonConstants.SIGN_IN_URL;
-
 public class SignInTests extends BaseTest {
 
-    @Test(groups = "Katia. When inputted right email. After that, We went to Create an account page.")
+    @Test(groups = "Katia", description = "When inputted right email. After that, We went to Create an account page.", priority = 1)
     public void createAnAccountTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInEmailAndClickCreateAccountBtn(NOT_REGISTERED_EMAIL_ADDRESS);
         Assert.assertTrue(signInPage.isPageOpened());
     }
 
-    @Test(groups = "Katia. When field email is empty.")
+    @Test(groups = "Katia", description = "When field email is empty.", priority = 3)
     public void emptyEmailFieldTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInEmailAndClickCreateAccountBtn(EMPTY_EMAIL_ADDRESS);
         Assert.assertEquals(signInPage.getEmailAddressText(), WRONG_EMAIL_ADDRESS_MESSAGE);
     }
 
-    @Test(groups = "Katia. When inputted wrong email.")
+    @Test(groups = "Katia", description = "When inputted wrong email.", priority = 2)
     public void wrongEmailFieldTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInEmailAndClickCreateAccountBtn(WRONG_EMAIL_ADDRESS);
         Assert.assertEquals(signInPage.getEmailAddressText(), WRONG_EMAIL_ADDRESS_MESSAGE);
     }
 
     @Test(groups = "Sasha", description = "Checked error text when input wrong email address")
     public void wrongEmailFieldSignInTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInSignInForm(EMAIL_ADDRESS_WRONG_S, PASSWORD);
         Assert.assertEquals(signInPage.getErrorTextSignIn(), WRONG_EMAIL_ADDRESS_MESSAGE_SIGN_IN);
     }
 
     @Test(groups = "Sasha", description = "Checked when sign in is over")
     public void rightDataSignInTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         Assert.assertTrue(signInPage.isHeaderLabelDisplayed("Anton Ivanov"));
     }
 
     @Test(groups = "Sasha", description = "Checked when sign out is over")
     public void signInSignOutTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
-        headerPage.clickSignOutProfile();
+        headerPage.clickSignOutBtn();
         Assert.assertTrue(signInPage.isSignInButtonDisplayed ());
     }
-
 }

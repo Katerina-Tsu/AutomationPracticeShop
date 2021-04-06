@@ -1,70 +1,63 @@
 package pages;
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CreateAnAccountPage extends BasePage {
-
-    @FindBy(xpath = "//*[@id='email_create']")
-    WebElement emailAddressFieldInput;
-
-    @FindBy(xpath = "//*[@id='SubmitCreate']")
-    WebElement createAnAccountButton;
+@Log4j2
+public class CreateAnAccountPage extends HeaderPage {
 
     @FindBy(xpath = "//*[contains(text(),'Your personal information')]")
     WebElement yourPersonalInfoLabel;
 
     @FindBy(xpath = "//*[@id='customer_firstname']")
-    WebElement fieldYourFirstName;
+    WebElement yourFirstNameField;
 
     @FindBy(xpath = "//*[@id='submitAccount']")
     WebElement registrationButton;
 
     @FindBy(xpath = "//*[@id='center_column']//ancestor::*[contains(text(),'firstname')]")
-    WebElement errorTextEmptyFieldFirstname;
+    WebElement emptyFirstnameFieldErrorText;
 
     @FindBy(xpath = "//*[@id='passwd']")
-    WebElement fieldPassword;
+    WebElement passwordField;
 
     @FindBy(xpath = "//*[@class='alert alert-danger']//ancestor::*[contains(text(),'The Zip/Postal')]")
-    WebElement errorTextLongZipcode;
+    WebElement longZipcodeErrorText;
 
     @FindBy(xpath = "//*[@id='customer_lastname']")
-    WebElement fieldYourLastname;
+    WebElement yourLastnameField;
 
     @FindBy(xpath = "//*[@id='email']")
-    WebElement fieildEmail;
+    WebElement emailField;
 
     @FindBy(xpath = "//*[@id='firstname']")
-    WebElement fieldCompanyFirstname;
+    WebElement companyFirstNameField;
 
     @FindBy(xpath = "//*[@id='lastname']")
-    WebElement fieldCompanyLastname;
+    WebElement companyLastNameField;
 
     @FindBy(xpath = "//*[@id='address1']")
-    WebElement fieldYourAddress;
+    WebElement yourAddressField;
 
     @FindBy(xpath = "//*[@id='city']")
-    WebElement fieldCity;
+    WebElement cityField;
 
-    @FindBy(xpath = "//*[@id='id_state']//ancestor::*[contains(text(),'Arizona')]")
-    WebElement fieldState;
+    String stateField = "//*[@id='id_state']//ancestor::*[contains(text(),'%s')]";
 
     @FindBy(xpath = "//*[@id='postcode']")
-    WebElement fieldZipCode;
+    WebElement zipCodeField;
 
-    @FindBy(xpath = "//*[@id='id_country']//ancestor::*[contains(text(),'United State')]")
-    WebElement fieldCountry;
+    String countryField = "//*[@id='id_country']//ancestor::*[contains(text(),'%s')]";
 
     @FindBy(xpath = "//*[@id='phone_mobile']")
-    WebElement fieldMobPhone;
+    WebElement mobPhoneField;
 
     @FindBy(xpath = "//*[@id='alias']")
-    WebElement fieldAssignAddress;
-
-    @FindBy(xpath = "//*[@id='my-account']")
-    WebElement myAccountTab;
+    WebElement assignAddressField;
 
     @FindBy(xpath = "//*[@id='alias']")
     WebElement textInFieldAssignAnAddress;
@@ -73,52 +66,62 @@ public class CreateAnAccountPage extends BasePage {
         super(driver);
     }
 
-    public void fillInEmailAndClickCreateAccountBtn(String emailAddress) {
-        emailAddressFieldInput.sendKeys(emailAddress);
-        createAnAccountButton.click();
-    }
-
-    public void inputTextInFormFirstNameAndClickRegistr(String firstName) {
-        fieldYourFirstName.sendKeys(firstName);
+    @Step("Inputting first name and click register '{firstName}'.")
+    public void inputTextInFormFirstNameAndClickRegister(String yourFirstName) {
+        log.info(String.format("Inputting first name '%s' and clicking on register button", yourFirstName));
+        yourFirstNameField.sendKeys(yourFirstName);
         registrationButton.click();
     }
 
     public String getEmptyFirstnameText() {
-        return errorTextEmptyFieldFirstname.getText();
+        return emptyFirstnameFieldErrorText.getText();
     }
 
+    @Step("Inputting short zipcode and click register '{zipCode}'.")
     public void inputShortPswrdInField(String zipCode) {
-        fieldZipCode.sendKeys(zipCode);
+        log.info(String.format("Inputting short zipcode '%s' and clicking on register button", zipCode));
+        zipCodeField.sendKeys(zipCode);
+        registrationButton.click();
+    }
+
+    public void clickRegisterButton() {
         registrationButton.click();
     }
 
     public String getShortPswrdInField() {
-        return errorTextLongZipcode.getText();
+        return longZipcodeErrorText.getText();
     }
 
-    public void inputTextInRequiredFieldsFormAndReg(String firstName, String lastname,
-                                                    String pswrd, String firstnameCompany,
-                                                    String lastnameCompany, String yourAddress,
-                                                    String city, String zipCode, String mobPhone,
-                                                    String assignNameAddress) {
-        fieldYourFirstName.sendKeys(firstName);
-        fieldYourLastname.sendKeys(lastname);
-        fieildEmail.click();
-        fieldPassword.sendKeys(pswrd);
-        fieldCompanyFirstname.sendKeys(firstnameCompany);
-        fieldCompanyLastname.sendKeys(lastnameCompany);
-        fieldYourAddress.sendKeys(yourAddress);
-        fieldCity.sendKeys(city);
-        fieldState.click();
-        fieldZipCode.sendKeys(zipCode);
-        fieldCountry.getText();
-        fieldMobPhone.sendKeys(mobPhone);
+    @Step("Inputting data in fields for creating an account")
+    public void inputTextInRequiredFieldsFormAndReg(String yourFirstName, String yourLastName, String password,
+                                                    String firstNameCompany, String lastNameCompany,
+                                                    String addressCompany, String city, String zipCode,
+                                                    String phoneNumber, String assignCompanyName) {
+        yourFirstNameField.sendKeys(yourFirstName);
+        yourLastnameField.sendKeys(yourLastName);
+        emailField.click();
+        passwordField.sendKeys(password);
+        companyFirstNameField.clear();
+        companyFirstNameField.sendKeys(firstNameCompany);
+        companyLastNameField.clear();
+        companyLastNameField.sendKeys(lastNameCompany);
+        yourAddressField.sendKeys(addressCompany);
+        cityField.sendKeys(city);
+        zipCodeField.sendKeys(zipCode);
+        mobPhoneField.sendKeys(phoneNumber);
         textInFieldAssignAnAddress.clear();
-        fieldAssignAddress.sendKeys(assignNameAddress);
-        registrationButton.click();
+        assignAddressField.sendKeys(assignCompanyName);
     }
 
-    public boolean isMainStorePageOpened() {
-        return myAccountTab.isDisplayed();
+    @Step("Choosing state name '{state}'.")
+    public void chooseState(String state) {
+        log.info(String.format("Choosing state name '%s': ", state));
+        driver.findElement(By.xpath(String.format(stateField, state))).click();
+    }
+
+    @Step("Choosing country name '{country}'.")
+    public void chooseCountry(String country) {
+        log.info(String.format("Choosing country name '%s': ", country));
+        driver.findElement(By.xpath(String.format(countryField, country))).click();
     }
 }

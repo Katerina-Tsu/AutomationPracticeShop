@@ -87,6 +87,7 @@ public class CreateNewAddressPage extends BasePage {
     public void clickSaveButton() {
         saveButton.click();
     }
+
     public boolean isNewAddressNameDisplayed(String headerText) {
         return driver.findElement(By.xpath(String.format(NEW_ADDRESS_NAME_XPATH, headerText))).isDisplayed();
     }

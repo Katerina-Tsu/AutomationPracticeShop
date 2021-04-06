@@ -3,13 +3,11 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static constants.CommonConstants.SIGN_IN_URL;
-
 public class CreateNewAddressTest extends BaseTest {
 
     @Test(groups = "Sasha", description = "In My Account. Add a new address shipping")
     public void createNewAddressTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         createNewAddressPage.clickAddressesButton();
         createNewAddressPage.clickOnAddAnAddressButton();
@@ -29,7 +27,7 @@ public class CreateNewAddressTest extends BaseTest {
 
     @Test(groups = "Sasha", description = "In My Account. Add a new address shipping negative test")
     public void createNewAddressNegativeTest() {
-        signInPage.openPage(SIGN_IN_URL);
+        signInPage.openSignInPage();
         signInPage.fillInSignInForm(EMAIL_ADDRESS_RIGHT_SIGN_IN_S, PASSWORD);
         createNewAddressPage.clickAddressesButton();
         createNewAddressPage.clickOnAddAnAddressButton();

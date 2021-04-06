@@ -16,12 +16,12 @@ public class ProductSearchPage extends BasePage {
     @FindBy(xpath = "//*[@id='searchbox']/button")
     WebElement searchActivation;
 
-    private static final String SEARCH_CORRECT_RESULT_XPATH = "//*[@class='heading-counter']//ancestor::*[contains(text(),'%s')]";
-
     @FindBy(xpath = "//*[@class='heading-counter']")
     WebElement searchCorrectResultTshirts;
 
-    public void inputInSearchField (String search){
+    private static final String SEARCH_CORRECT_RESULT_XPATH = "//*[@class='heading-counter']//ancestor::*[contains(text(),'%s')]";
+
+    public void inputInSearchField (String search) {
         searchField.sendKeys(search);
         searchActivation.click();
     }

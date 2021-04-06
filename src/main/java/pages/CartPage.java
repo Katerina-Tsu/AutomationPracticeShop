@@ -10,9 +10,6 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    private static final String PRODUCT_TITLE_XPATH = "//*[@title = '%s']";
-
-
     @FindBy(xpath = "//*[@name='Submit']")
     WebElement addToCart;
 
@@ -21,6 +18,8 @@ public class CartPage extends BasePage {
 
     @FindBy(xpath = "//*[@title='View my shopping cart']")
     WebElement goOverToCart;
+
+    private static final String PRODUCT_TITLE_XPATH = "//*[@title = '%s']";
 
     private static final String SIGNED_IN_DESCRIPTION_LABEL_XPATH = "//*[@class='cart_description']//ancestor::*[contains(text(),'%s')]";
 
@@ -42,5 +41,4 @@ public class CartPage extends BasePage {
         addToCart.click();
         driver.switchTo().defaultContent();
     }
-
 }
